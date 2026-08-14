@@ -1,0 +1,70 @@
+{
+  "preregistration_commit": "133ab57111d57afe2897df84e9202e73b1099b28",
+  "gate": "closure_insufficiency_diagnosis_only",
+  "construction_changed": false,
+  "extension_proposal_present": false,
+  "encodings": 64,
+  "contexts_per_encoding": 12,
+  "diagnostic_episodes": 768,
+  "old_closure": {
+    "canonical_source_size": 15,
+    "canonical_source_checksum_sha256": "809abd918f17a77c779f76ce1b14ba4661e63b6834c4bec475fbe8a8f8eeed49",
+    "encoded_fixed_point_size_all_encodings": true,
+    "distinct_encoded_checksums_due_world_relabeling": 64
+  },
+  "matched_panel": {
+    "all_exact_targets_outside_current_closure": true,
+    "exact_targets_outside_count": 768,
+    "baseline_accuracy_all": 0.625,
+    "exact_target_R_corr_all": 0.375,
+    "exact_target_q_all": 0.275,
+    "all_failed_runs_unresolved": true,
+    "all_failed_runs_commit": true
+  },
+  "target_profiles": {
+    "H_closure_sufficient": {
+      "max_R_corr": 0.25,
+      "max_q": 0.15,
+      "qmax_count": 1,
+      "all_other_C0_R_corr": 0.0
+    },
+    "G_closure_insufficient": {
+      "max_R_corr": 0.0,
+      "max_q": -0.1
+    }
+  },
+  "primary_diagnosis": {
+    "SEARCH_MISS": {"correct": 256, "total": 256, "actor_commit": 256},
+    "VALUATION_MISHANDLE": {"correct": 256, "total": 256, "actor_commit": 256},
+    "CLOSURE_INSUFFICIENT": {"correct": 256, "total": 256, "actor_commit": 256}
+  },
+  "total_correct": 768,
+  "total": 768,
+  "restricted_controls": {
+    "D0_failure_only": {"ceiling": 0.6666666666666666, "best_correct": 512, "total": 768},
+    "D1_actor_observed_capacity": {"ceiling": 0.6666666666666666, "best_correct": 512, "total": 768},
+    "D2_exact_target_membership": {"ceiling": 0.6666666666666666, "best_correct": 512, "total": 768},
+    "D2_naive_outside_implies_insufficient": {"accuracy": 0.3333333333333333, "correct": 256, "total": 768},
+    "D3_supplied_qmax_oracle": {"can_be_exact": true, "valid_primary_evidence": false, "classification": "oracle displacement"}
+  },
+  "earned_boundary": {
+    "failure_not_closure_insufficiency": true,
+    "exact_target_absence_not_closure_insufficiency": true,
+    "diagnosis_not_extension_discovery": true
+  },
+  "upstream_regression": {
+    "gate2_commit": "ee1b9ac65e40ab5140deb1d82d2ff81768c18200",
+    "old_closure_size": 15,
+    "G20_reachability": 0,
+    "G20_commit": 256,
+    "G21_reachability": 256,
+    "G21_exact_choice": 256,
+    "G22_reachability": 0,
+    "G23_reachability": 192,
+    "G23_exact_choice": 192,
+    "hard_assertions_wired_in_executable": true,
+    "freshly_process_replayed_in_connector_session": false,
+    "inherited_gate1_accessibility_valuation_navigation_assertions": true,
+    "provenance": "fresh closure-diagnosis panel with inherited hard regression assertions"
+  }
+}
