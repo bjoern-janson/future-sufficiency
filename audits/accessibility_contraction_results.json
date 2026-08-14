@@ -1,0 +1,132 @@
+{
+  "preregistration_commit": "6116603e0814f6fd7742cdb21ef312bd0cb15070",
+  "execution_scope": "accessibility core panel executed in-session; upstream valuation/navigation audits not freshly process-reexecuted in this connector session",
+  "encodings": 64,
+  "contexts_per_encoding": 15,
+  "context_encoding_evaluations": 960,
+  "latent_universe": {
+    "latent_universe_size": 15,
+    "world_count": 16,
+    "semantics_checksum_sha256": "54b7375f6ff283a3dff9f06bdaf67cced806411c9277021b0f9579c50cf45e59",
+    "distinct_probe_semantics": 15,
+    "target_probe_relevance": 0.5,
+    "non_target_probe_relevance": 0.0,
+    "raw_information_bits_per_probe": 1.0,
+    "anchored_kappa_per_probe": 0.1
+  },
+  "latent_universe_identical_across_interfaces": true,
+  "B_E_star_frozen": true,
+  "access_results": {
+    "A0_explicit_menu": {
+      "target_reachable": 960,
+      "choice_matches_A0": 960,
+      "target_reach_rate": 1.0,
+      "choice_agreement": 1.0
+    },
+    "A1_all_registry": {
+      "target_reachable": 960,
+      "choice_matches_A0": 960,
+      "target_reach_rate": 1.0,
+      "choice_agreement": 1.0
+    },
+    "A2_no_access": {
+      "target_reachable": 0,
+      "choice_matches_A0": 0,
+      "target_reach_rate": 0.0,
+      "choice_agreement": 0.0
+    },
+    "A3_first_7_registry": {
+      "target_reachable": 448,
+      "choice_matches_A0": 448,
+      "target_reach_rate": 0.4666666666666667,
+      "choice_agreement": 0.4666666666666667
+    },
+    "A4_target_lookup_oracle": {
+      "target_reachable": 960,
+      "choice_matches_A0": 960,
+      "target_reach_rate": 1.0,
+      "choice_agreement": 1.0
+    }
+  },
+  "A3_coverage_certificate": {
+    "reachable_per_encoding": [7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],
+    "all_encodings_exactly_7_of_15": true,
+    "aggregate_reachable": 448,
+    "aggregate_total": 960,
+    "coverage": 0.4666666666666667,
+    "preregistered_ceiling": 0.4666666666666667,
+    "exceeds_ceiling": false
+  },
+  "per_context_target_reachability_counts": {
+    "A0_explicit_menu": {"1":64,"2":64,"3":64,"4":64,"5":64,"6":64,"7":64,"8":64,"9":64,"10":64,"11":64,"12":64,"13":64,"14":64,"15":64},
+    "A1_all_registry": {"1":64,"2":64,"3":64,"4":64,"5":64,"6":64,"7":64,"8":64,"9":64,"10":64,"11":64,"12":64,"13":64,"14":64,"15":64},
+    "A2_no_access": {"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0},
+    "A3_first_7_registry": {"1":32,"2":26,"3":32,"4":35,"5":24,"6":29,"7":31,"8":39,"9":33,"10":18,"11":30,"12":29,"13":31,"14":29,"15":30},
+    "A4_target_lookup_oracle": {"1":64,"2":64,"3":64,"4":64,"5":64,"6":64,"7":64,"8":64,"9":64,"10":64,"11":64,"12":64,"13":64,"14":64,"15":64}
+  },
+  "access_burden_ledger": {
+    "A0_explicit_menu": {
+      "vector": {"B_menu":15,"B_generator":0,"B_grammar":0,"B_semantic_hints":0,"B_search_constraints":0},
+      "B_access_clauses": 15,
+      "oracle_displacement": false
+    },
+    "A1_all_registry": {
+      "vector": {"B_menu":0,"B_generator":1,"B_grammar":0,"B_semantic_hints":0,"B_search_constraints":0},
+      "B_access_clauses": 1,
+      "oracle_displacement": false
+    },
+    "A2_no_access": {
+      "vector": {"B_menu":0,"B_generator":0,"B_grammar":0,"B_semantic_hints":0,"B_search_constraints":0},
+      "B_access_clauses": 0,
+      "oracle_displacement": false
+    },
+    "A3_first_7_registry": {
+      "vector": {"B_menu":0,"B_generator":1,"B_grammar":0,"B_semantic_hints":0,"B_search_constraints":1},
+      "B_access_clauses": 2,
+      "oracle_displacement": false
+    },
+    "A4_target_lookup_oracle": {
+      "vector": {"B_menu":0,"B_generator":1,"B_grammar":0,"B_semantic_hints":15,"B_search_constraints":0},
+      "B_access_clauses": 16,
+      "oracle_displacement": true
+    }
+  },
+  "primary_contraction": {
+    "A0_B_access": 15,
+    "A1_B_access": 1,
+    "B_access_decreases": true,
+    "same_target_reachability": true,
+    "same_downstream_choice": true,
+    "B_E_star_changed": false
+  },
+  "oracle_control": {
+    "interface": "A4_target_lookup_oracle",
+    "behavioral_choice_matches": 960,
+    "semantic_hint_clauses": 15,
+    "B_access_clauses": 16,
+    "classification": "oracle displacement",
+    "valid_minimality_evidence": false
+  },
+  "upstream_regression_contract": {
+    "status": "inherited hard assertions in committed executable",
+    "valuation_role_minimality": {
+      "cut_R_no_explicit_R_corr_exact": 512,
+      "contract_blind_mirror_ceiling": 0.5,
+      "cut_K_anchored_burden_exact": 320,
+      "no_burden_ceiling": 0.25,
+      "burden_order_ceiling": 0.25,
+      "relative_difference_ceiling": 0.8
+    },
+    "multi_candidate": {
+      "encoded_states": 512,
+      "max_only_exact": 512,
+      "sign_only_ceiling": 0.5416666666666666,
+      "pareto_ceiling": 0.7083333333333334
+    },
+    "stop_navigation": {
+      "visited_decision_points": 3584,
+      "derived_terminations": 1536,
+      "trace_mismatches": 0
+    }
+  }
+}
