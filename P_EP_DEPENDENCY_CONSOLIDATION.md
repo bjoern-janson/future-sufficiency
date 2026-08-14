@@ -2,7 +2,7 @@
 
 ## Status
 
-This document consolidates the experiment-planning dependency picture after the reachable-refinement, controller-substitution, STOP-substitution, valuation-role, multi-candidate acquisition-order, and valuation-role-minimality audits.
+This document consolidates the experiment-planning dependency picture after the reachable-refinement, controller-substitution, STOP-substitution, valuation-role, multi-candidate acquisition-order, valuation-role-minimality, and accessibility-contraction audits.
 
 It is a **dependency ledger**, not a new theory layer and not a `P_ep,min` certificate.
 
@@ -15,9 +15,10 @@ fadf503  reachable-refinement discriminant audit
 c97a5cf  valuation-role discriminant audit
 9a32f94  multi-candidate acquisition-order audit
 b7c068b  valuation-role minimality audit
+6355333  accessibility contraction audit
 ```
 
-The current phase is now:
+The current phase is:
 
 \[
 \boxed{
@@ -27,9 +28,9 @@ The current phase is now:
 \rightarrow
 \text{valuation minimality}
 \rightarrow
-\boxed{\text{experiment accessibility}}
+\text{accessibility contraction}
 \rightarrow
-\text{later experiment-space construction}.
+\boxed{\text{experiment-space construction}}.
 }
 \]
 
@@ -43,39 +44,51 @@ The governing distinctions remain:
 }
 \]
 
-and:
-
 \[
 \boxed{
 \text{behavioral substitution}
 \neq
-\text{substrate reduction}.
+\text{substrate reduction}
 }
 \]
 
-A representation that merely relocates target decisions, rankings, relevance labels, or affordability labels is **oracle displacement**, not minimality evidence.
+and now:
+
+\[
+\boxed{
+\text{accessibility contraction}
+\neq
+\text{experiment construction}.
+}
+\]
 
 ---
 
-## 1. What has actually been removed or ruled out
+## 1. Empirical contraction history
 
-The original active-evidence implementation supplied, among other things:
+### 1.1 Reachable refinement geometry
+
+At `fadf503`, matched static evidence resources but different contingent refinement geometry produced different correction possibility.
+
+The earned finite-deterministic distinction was:
 
 \[
-P_{\rm ep}
-\supseteq
-\{A_{\rm probe},C,V,\Pi_{\rm DP},STOP_{\rm primitive}\}.
+\boxed{
+\text{eventual identifiability}
+\neq
+\text{future-sufficient identifiability}.
+}
 \]
 
-Successive interventions have removed implementation-specific machinery and localized the functional roles that survive.
+The role-level dependency is that correction can require a contingent refinement path to remain reachable before the relevant commitment boundary.
 
-### 1.1 Dynamic programming
+### 1.2 Dynamic programming
 
 At `68f2338`, finite Bellman dynamic programming was replaced by a reachability-preserving controller.
 
-Across all 64 anonymous encodings and all A/B/C geometries, the replacement matched DP on terminal accuracy, probe cost, probe count and utility, with zero actions outside the DP-optimal set over 3,584 visited decision points.
+Across all 64 anonymous encodings and A/B/C geometries, the replacement matched DP on terminal accuracy, probe count, probe cost, and utility, with zero actions outside the DP-optimal action set over 3,584 visited decisions.
 
-Therefore, in the declared finite deterministic regime:
+Therefore:
 
 \[
 \boxed{
@@ -85,23 +98,23 @@ Therefore, in the declared finite deterministic regime:
 
 for the observed navigation behavior.
 
-The surviving role is sequential/compositional preservation of correction-relevant refinement structure.
+The surviving role is:
 
-### 1.2 Primitive `STOP`
+\[
+\boxed{
+S_{\rm refine}
+=
+\text{preserve correction-relevant contingent refinement structure across steps}.
+}
+\]
+
+### 1.3 Primitive STOP
 
 At `4694382`, primitive `STOP` was removed from the epistemic action set.
 
-Termination was derived as the absence of a justified continuation.
+Derived termination matched all 1,536 primitive STOP decisions with zero normalized trajectory mismatches.
 
-Across all 64 anonymous encodings:
-
-```text
-1,536 primitive STOP decisions
-1,536 corresponding derived terminations
-0 normalized trajectory mismatches
-```
-
-The exhaustion-only negative control continued probing unnecessarily, preserving accuracy but increasing cost.
+The exhaustion-only control continued probing unnecessarily and reduced utility.
 
 Therefore:
 
@@ -115,41 +128,37 @@ while:
 
 \[
 \boxed{
-\text{termination token}
-\neq
-\text{termination discipline}.
+T_{\rm stop}
+=
+\text{terminate when no warranted continuation remains}
 }
 \]
 
-### 1.3 Separate cardinal `V,C`
+survives.
 
-At `c97a5cf`, the valuation-role audit separated:
+### 1.4 Separate cardinal `V,C`
+
+At `c97a5cf`, the valuation-role audit established:
 
 \[
 \boxed{
-I(e)
-\neq
-R_{\rm corr}(e)
-\neq
-Q_{\rm acquire}(e).
+I(e)\neq R_{\rm corr}(e)\neq Q_{\rm acquire}(e).
 }
 \]
 
-The baseline:
+The separate cardinal representation:
 
 \[
-M_{VC}(e)=V R_{\rm corr}(e)-C(e)
+(V,C)
 \]
 
 was replaced by:
 
 \[
-\boxed{
-\kappa(e)=C(e)/V
-}
+\kappa=C/V
 \]
 
-with exact preservation across:
+with:
 
 ```text
 64 anonymous encodings
@@ -157,131 +166,97 @@ with exact preservation across:
 0 baseline-vs-kappa mismatches
 ```
 
-Thus:
+Therefore:
 
 \[
 \boxed{
-(V,C)\text{ as separately represented cardinal scales}
-\notin N_{P_{\rm ep}}
+(V,C)_{\rm separate}\notin N_{P_{\rm ep}}
 }
 \]
 
 for the audited behavior.
 
-The negative controls simultaneously established:
+This removed a representation scale, not the acquisition-burden role.
 
-\[
-\boxed{
-\text{raw information}
-\neq
-\text{correction relevance}
-\neq
-\text{acquisition worth}.
-}
-\]
-
-### 1.4 Candidate-vs-COMMIT sign only
-
-The `c97a5cf` result established only:
-
-\[
-\boxed{
-e\succ_Q COMMIT\;?}
-\]
+### 1.5 Candidate-vs-COMMIT is not enough
 
 At `9a32f94`, multiple worthwhile refinements were simultaneously admissible.
 
-Under exhaustive anonymous candidate permutations:
+The best possible deterministic choice accuracy from candidate-vs-COMMIT sign information was:
 
 \[
 \boxed{
-\operatorname{Ceiling}(Q^\bot)=13/24\approx0.5417.
+\operatorname{Ceiling}(Q^\bot)=13/24.
 }
 \]
-
-Therefore:
-
-\[
-\boxed{
-\text{candidate-vs-COMMIT sufficiency}
-\neq
-\text{multi-candidate choice sufficiency}.
-}
-\]
-
-This is a representation-language insufficiency result, not a learner failure.
-
-### 1.5 Uncompensated Pareto dominance
-
-Adding uncompensated dominance in `(R_corr,-kappa)` raises the best possible ceiling only to:
-
-\[
-\boxed{
-\operatorname{Ceiling}(Q^\bot+Pareto)=17/24\approx0.7083.
-}
-\]
-
-The crossing tradeoff states remain unresolved.
 
 Thus:
 
 \[
 \boxed{
-\text{uncompensated dominance is insufficient under relevance/burden tradeoffs}.
+e\succ_Q COMMIT
+\not\Rightarrow
+e_i\succ_Q e_j.
 }
 \]
 
-### 1.6 Explicit cardinal `q` vector
+### 1.6 Pareto dominance is not enough
 
-The multi-candidate cardinal reference used:
+Adding uncompensated dominance in `(R_corr,-kappa)` produced only:
 
 \[
-q_i=R_i-\kappa_i.
+\boxed{
+\operatorname{Ceiling}(Q^\bot+\mathrm{Pareto})=17/24.
+}
 \]
 
-A derived comparator used:
+The crossing tradeoff cases require compensated comparison.
+
+### 1.7 Cardinal `q` vector
+
+The explicit reference:
+
+\[
+q_i=R_i-\kappa_i
+\]
+
+was replaced by an on-demand compensated comparator:
 
 \[
 \boxed{
 e_i\succ_Q e_j
 \iff
-R_i+\kappa_j>R_j+\kappa_i
+R_i+\kappa_j>R_j+\kappa_i.
 }
 \]
 
-without storing `q_i`.
-
-It matched the cardinal reference:
-
-\[
-\boxed{512/512}.
-\]
+It matched the cardinal reference on all 512 encoded states.
 
 Therefore:
 
 \[
 \boxed{
-\text{explicit cardinal }q\text{ vector}
-\notin N_{P_{\rm ep}}.
+q_{\rm cardinal}\notin N_{P_{\rm ep}}
 }
 \]
 
-### 1.7 Stored full ordinal ranking
+for the observed choices.
 
-A max-only implementation retained only the current co-maximal class and discarded losing relations.
+### 1.8 Stored full ranking
 
-It also matched:
+A max-only co-maximal tournament also matched:
 
 \[
-\boxed{512/512}.
+\boxed{512/512}
 \]
+
+without materializing a total candidate ordering.
 
 Therefore:
 
 \[
 \boxed{
-\text{stored full candidate ranking}
-\notin N_{P_{\rm ep}}.
+\text{stored full ranking}\notin N_{P_{\rm ep}}.
 }
 \]
 
@@ -289,113 +264,73 @@ The surviving acquisition role contracted to:
 
 \[
 \boxed{
-\textbf{identify a currently maximal worthwhile refinement by on-demand compensated comparison.}
+Q_{\rm acquire}^{\rm role}
+=
+\text{identify a currently maximal worthwhile refinement}.
 }
 \]
 
-### 1.8 Explicit controller-side `R_corr`
+### 1.9 Explicit `R_corr`
 
-At `b7c068b`, the valuation-role-minimality audit removed the explicit `R_corr` scalar from the acquisition-controller interface.
+At `b7c068b`, the controller-side `R_corr` scalar was removed.
 
-The replacement receives only the already-frozen:
-
-- evidence outcome partition;
-- current posterior world set;
-- correction contract;
-- acquisition burden.
-
-It derives post-evidence achievable correction directly from consequences and compares candidates without materializing `R_corr` or `q`.
-
-On the frozen P1–P8 multi-candidate panel:
+The replacement derived corrective consequence directly from the frozen evidence partition and correction contract, with:
 
 \[
 \boxed{512/512}
 \]
 
-choices were preserved.
+multi-candidate choices preserved.
+
+A contract-dependence mirror achieved:
+
+```text
+contract-aware choices: 128/128
+contract-blind ceiling: 1/2
+```
 
 Therefore:
 
 \[
 \boxed{
-R_{\rm corr}^{\rm explicit/controller}
-\notin N_{P_{\rm ep}}
+R_{\rm corr}^{\rm explicit}
+\text{ is implementation-contingent}
 }
 \]
 
-for the observed acquisition choices.
+while correction relevance remains grounded in the correction contract.
 
-But this is a **controller-interface / representation contraction**, not an external-specification reduction: the previous implementation already derived `R_corr` from evidence consequences rather than receiving a designer-supplied relevance table.
-
-The surviving role is:
+This is:
 
 \[
 \boxed{
-\text{correction relevance derived from evidence consequences under the frozen correction contract}.
+B_{\rm controller}\downarrow
 }
 \]
 
-### 1.9 Correction relevance remains contract-grounded
-
-The same audit included a mirror control with identical local evidence partitions and burden pattern but a conditional correction contract:
-
-\[
-a^\star_c(W)=t_c.
-\]
-
-The warranted choice flips with the contract context.
-
-The contract-aware consequence comparator achieved:
-
-\[
-\boxed{128/128}.
-\]
-
-A contract-blind local-evidence representation has an exact collision ceiling:
-
-\[
-\boxed{1/2}.
-\]
-
-Therefore:
+but not:
 
 \[
 \boxed{
-\text{local evidence structure alone}
-\neq
-\text{correction relevance}.
+B_{\rm external}\downarrow,
 }
 \]
 
-The explicit `R_corr` scalar is contingent, but the correction contract is still doing genuine normative/decision-defining work.
+because the earlier implementation already derived `R_corr` rather than receiving a designer-supplied relevance table.
 
-### 1.10 Acquisition burden cannot be reduced to absence, order, or relative differences
+### 1.10 Acquisition burden
 
-The second independent cut at `b7c068b` held correction consequences fixed:
-
-\[
-R_H=.5,\quad R_M=.25,\quad R_L=.125
-\]
-
-while varying only acquisition burden.
-
-Across K1–K4, the burden ordering was always:
-
-\[
-\kappa_H>\kappa_M>\kappa_L
-\]
-
-but the warranted next action rotated:
-
-\[
-\boxed{H\rightarrow M\rightarrow L\rightarrow COMMIT.}
-\]
-
-The exact representation ceilings were:
+The burden ablation at `b7c068b` found:
 
 \[
 \boxed{
-\operatorname{Ceiling}(\text{no burden})=1/4
+\operatorname{Ceiling}(-\kappa)=1/4
+}
+\]
+
+\[
+\boxed{
+\operatorname{Ceiling}(\text{burden order only})=1/4
 }
 \]
 
@@ -403,195 +338,315 @@ and:
 
 \[
 \boxed{
-\operatorname{Ceiling}(\text{burden order only})=1/4.
+\operatorname{Ceiling}(\text{relative burden differences without COMMIT anchor})=4/5.
 }
 \]
 
-A relevance-only natural control achieved only:
-
-```text
-64 / 320 exact choices = 0.20
-```
-
-and over-purchased correction-relevant evidence in K4/K5 where COMMIT was warranted.
-
-Thus:
-
-\[
-\boxed{
-\text{correction relevance alone}
-\neq
-\text{acquisition worth}.
-}
-\]
-
-### 1.11 Relative burden still needs an absolute stopping anchor
-
-K5 is a constant burden shift of K1.
-
-K1 and K5 have identical pairwise burden differences, but require:
-
-```text
-K1 -> H
-K5 -> COMMIT
-```
-
-A representation containing correction consequences plus pairwise burden differences but no absolute burden level therefore has ceiling:
-
-\[
-\boxed{4/5}.
-\]
-
-The full anchored burden representation remains exact:
+The anchored quantitative burden reference remained exact on:
 
 \[
 \boxed{320/320}.
 \]
 
-The strongest current dependency statement is not that the literal symbol `kappa` is uniquely necessary. It is:
+The earned role is therefore not “a scalar named `kappa` is uniquely necessary.” It is:
 
 \[
 \boxed{
-\textbf{some quantitative acquisition-burden information anchored to the COMMIT boundary remains necessary in the tested language family and frozen substrate.}
+\textbf{quantitative acquisition burden anchored to the COMMIT boundary}.
 }
+\]
+
+### 1.11 Explicit probe menu
+
+At `6355333`, the accessibility-contraction audit froze the latent probe universe:
+
+\[
+\boxed{
+\mathcal E^\star
+=
+\{e_m:m\neq0000\},
+\qquad
+|\mathcal E^\star|=15
+}
+\]
+
+and held all probe semantics, correction contracts, burdens, valuation, navigation, and stopping machinery fixed.
+
+The explicit access reference used:
+
+```text
+B_access(A0) = 15
+```
+
+for 15 per-probe menu clauses.
+
+The target-blind `ALL_REGISTRY` rule used:
+
+```text
+B_access(A1) = 1
+```
+
+and preserved:
+
+```text
+target reachability: 960/960
+downstream choice:    960/960
+```
+
+with:
+
+\[
+\boxed{
+B_{\mathcal E^\star}=\text{fixed}.
+}
+\]
+
+Therefore:
+
+\[
+\boxed{
+\text{explicit per-probe menu enumeration}
+\notin N_{P_{\rm ep}}
+}
+\]
+
+for complete accessibility in this fixed finite latent registry.
+
+The surviving access role is narrower:
+
+\[
+\boxed{
+A_{\rm registry}
+=
+\text{generic access to members of the already-defined latent registry}.
+}
+\]
+
+Accessibility itself has **not** disappeared.
+
+The no-access control produced:
+
+\[
+\boxed{0/960}
+\]
+
+despite every probe still existing latently.
+
+The target-blind partial-access control produced exactly:
+
+\[
+\boxed{
+448/960=7/15
+}
+\]
+
+and never exceeded its coverage ceiling.
+
+Thus:
+
+\[
+\boxed{
+\text{latent existence}
+\neq
+\text{accessibility}.
+}
+\]
+
+The context-to-target lookup achieved 960/960 but required 15 target-specific semantic hints and was classified as:
+
+\[
+\boxed{\text{oracle displacement}.}
 \]
 
 ---
 
-## 2. Current surviving role inventory
+## 2. Current surviving role / supplied-substrate inventory
 
-The original flat implementation list has now contracted substantially.
+The experiment-planning branch should now be represented at the role level, not as the original implementation list.
 
-A provisional role/supplied-ingredient inventory is:
+A provisional current inventory is:
 
 \[
 \boxed{
 P_{\rm ep}^{\rm surviving}
 =
 \{
-A_{\rm probe},
 S_{\rm refine},
-\text{contract-grounded correction consequence},
-\text{anchored quantitative acquisition burden},
+T_{\rm stop},
 Q_{\rm acquire}^{\rm role},
-T_{\rm stop}
+A_{\rm registry},
+R_{\rm contract},
+B_{\rm anchored},
+\mathcal E^\star_{\rm supplied}
 \}.
 }
 \]
 
-where:
+These symbols are bookkeeping labels for surviving functional roles and supplied substrate, not newly asserted theoretical primitives.
+
+Operationally:
+
+- `S_refine`: preserve correction-relevant contingent refinement paths;
+- `T_stop`: terminate when no continuation remains warranted;
+- `Q_acquire^role`: identify a currently maximal worthwhile accessible refinement;
+- `R_contract`: derive corrective consequence from evidence under the frozen correction contract;
+- `B_anchored`: quantitative acquisition burden anchored to COMMIT;
+- `A_registry`: generic access to the already-defined latent probe registry;
+- `E*_supplied`: latent experiment membership and semantics remain externally specified.
+
+Do **not** infer:
 
 \[
-\boxed{
-Q_{\rm acquire}^{\rm role}
+P_{\rm ep,min}
 =
-\text{identify a currently maximal worthwhile refinement by on-demand compensated comparison}.
-}
+P_{\rm ep}^{\rm surviving}.
 \]
 
-This is **not** a minimal set.
-
-It means only that:
-
-- `A_probe` remains a supplied finite menu of accessible refinements;
-- `S_refine` remains the sequential/compositional navigation role;
-- explicit `R_corr` has been removed from the controller interface, but correction relevance remains derivable only relative to the frozen correction contract;
-- acquisition burden remains quantitatively specified and must be anchored to the stopping boundary in the tested family;
-- `Q_acquire^role` remains maximal-class selection by on-demand compensation;
-- `T_stop` remains the discipline of terminating when no candidate is worth continuing with.
-
-Do not infer:
-
-\[
-P_{\rm ep,min}=P_{\rm ep}^{\rm surviving}.
-\]
+That remains unresolved.
 
 ---
 
 ## 3. Dependency table
 
-| Component / representation | Tested implementation or language | Surviving functional role | Evidence status | Lowest-blast-radius unresolved question |
+| Component / representation | Tested implementation or language | Surviving role | Evidence status | Current boundary |
 |---|---|---|---|---|
-| `Pi_DP` | Bellman recursion | preserve correction-relevant contingent refinement structure | **implementation removed** at `68f2338` | none unless later task breaks role abstraction |
-| `STOP_primitive` | first-class STOP action | terminate when continuation is unwarranted | **implementation removed** at `4694382` | do not reintroduce token |
-| separate `V,C` | separate cardinal value/cost scales | compare corrective improvement with burden | **representation removed** at `c97a5cf` | none as separate scales |
-| `Q^bot` | candidate-vs-COMMIT sign | decide whether one candidate is worthwhile | **insufficient for multi-candidate selection**; ceiling `13/24` | none as complete multi-candidate language |
-| Pareto partial order | uncompensated `(relevance,-burden)` dominance | eliminate strictly dominated candidates | **insufficient**; ceiling `17/24` | none as complete comparison |
-| cardinal `q` vector | explicit `R-kappa` margins | identify best worthwhile refinement | **representation removed** at `9a32f94` | none as stored vector |
-| stored full ranking | total order over candidates | identify maximal class | **representation removed** at `9a32f94` | none as persistent ranking |
-| explicit `R_corr` | derived scalar passed to controller | correction relevance | **controller representation removed** at `b7c068b`; consequence-derived comparator `512/512` | correction contract itself remains constitutive/frozen |
-| contract-blind evidence relation | local evidence partitions without correction contract | none sufficient for relevance | **insufficient**; mirror ceiling `1/2` | none as relevance substitute |
-| no burden | correction consequence only | none sufficient for acquisition worth | **insufficient**; ceiling `1/4` | none as burden substitute |
-| burden order only | cheap/expensive ordering | coarse burden comparison | **insufficient**; ceiling `1/4` | none as complete burden language |
-| pairwise burden differences only | relative cardinal burden, no absolute anchor | rank probes relative to each other | **insufficient for COMMIT boundary**; ceiling `4/5` | none as complete burden language |
-| anchored quantitative burden | current `kappa` representation | price acquisition relative to COMMIT | **role survives**; literal encoding not proven unique | revisit only if a genuinely lower-level burden consequence exists without added scaffold |
-| `Q_acquire^role` | on-demand compensated max-only choice | identify a currently maximal worthwhile refinement | **role survives** | currently stable enough to move to accessibility |
-| `S_refine` | reachability-preserving controller logic | preserve contingent corrective paths | **role survives** | later cross-check under accessibility interventions |
-| `T_stop` | absence of justified continuation | stop when no worthwhile refinement remains | **role survives** | later cross-check under accessibility interventions |
-| `A_probe` | supplied finite probe menu and semantics | make candidate refinements accessible | **supplied / unresolved** | next frontier: reduce/generate accessibility without relocating experiment specification complexity |
+| `Pi_DP` | Bellman recursion | preserve contingent corrective structure | **removed** at `68f2338` | implementation contingent |
+| `STOP_primitive` | explicit STOP action | warranted termination | **removed** at `4694382` | token contingent |
+| separate `V,C` | cardinal value and cost scales | acquisition tradeoff | **removed** at `c97a5cf` | separate scale contingent |
+| `Q^bot` | candidate-vs-COMMIT sign | single-candidate worth | **insufficient**; ceiling `13/24` | not a complete multi-candidate language |
+| Pareto only | uncompensated relevance/burden dominance | remove dominated candidates | **insufficient**; ceiling `17/24` | compensated tradeoff survives |
+| cardinal `q` vector | explicit `R-kappa` margins | choose maximal worthwhile candidate | **removed** at `9a32f94` | cardinal vector contingent |
+| stored full ranking | total candidate ordering | identify maximal class | **removed** at `9a32f94` | persistent ranking contingent |
+| explicit `R_corr` | derived scalar passed to controller | correction relevance | **removed** at `b7c068b` | contract-grounded consequence survives |
+| contract-blind relevance | local evidence without correction contract | — | **insufficient**; ceiling `1/2` | contract remains constitutive |
+| no burden | corrective consequence only | — | **insufficient**; ceiling `1/4` | burden role survives |
+| burden order only | ordinal cheap/expensive relation | coarse burden | **insufficient**; ceiling `1/4` | quantitative magnitude needed |
+| relative burden differences | probe-relative burden only | relative probe ordering | **insufficient**; ceiling `4/5` | COMMIT anchor needed |
+| anchored quantitative burden | current `kappa` encoding | price acquisition relative to COMMIT | **role survives** | literal encoding not proven unique |
+| explicit probe menu | 15 target-blind opaque menu entries | expose latent probes | **removed** at `6355333`; `B_access 15→1`, 960/960 preserved | enumeration contingent |
+| no access | latent registry exists but no exposure path | — | **insufficient**; 0/960 | access path causally relevant |
+| partial registry access | target-blind first 7 of 15 | partial exposure | **coverage-limited**; 448/960 = `7/15` | accessibility localized |
+| target lookup | context→target probe semantic hints | expose target directly | 960/960 but **oracle displacement** | invalid minimality evidence |
+| generic registry access | one `ALL_REGISTRY` rule | expose all already-defined latent probes | **role survives** | current access contraction endpoint |
+| latent registry `E*` | 15 supplied parity probes and semantics | define what experiments exist | **supplied / untouched** | next frontier |
 
 ---
 
-## 4. Current valuation contraction
+## 4. Current role-level compression
 
-The valuation-side sequence is now:
-
-\[
-\boxed{
-(V,C)
-\rightarrow
-\kappa
-\rightarrow
-Q^\bot
-\rightarrow
-\text{compensated pairwise comparison}
-\rightarrow
-\text{maximal-class identification}
-\rightarrow
-\text{contract-derived corrective consequence + anchored burden}.
-}
-\]
-
-This is an empirical intervention history, not a stack of new theoretical primitives.
-
-The current role-level statement is:
+The current experiment-planning machinery can be summarized operationally as:
 
 \[
 \boxed{
-\textbf{
-identify the maximal worthwhile refinement by comparing contract-derived corrective consequence against quantitative acquisition burden anchored to COMMIT.
-}
+\text{generic access to a supplied latent experiment registry}
+\rightarrow
+\text{contract-derived corrective consequence}
++
+\text{COMMIT-anchored burden}
+\rightarrow
+\text{maximal worthwhile accessible refinement}
 }
 \]
 
-The major contractions are now:
+embedded inside:
 
-```text
-DP                         removed as necessary implementation
-primitive STOP             removed as necessary implementation
-separate V,C               removed as necessary representation
-candidate-vs-COMMIT only   ruled out as complete multi-candidate language
-Pareto-only                ruled out under crossing tradeoffs
-cardinal q vector          removed as necessary representation
-stored full ranking        removed as necessary representation
-explicit controller R_corr removed as necessary representation
-```
+\[
+\boxed{
+S_{\rm refine}
++
+T_{\rm stop}.
+}
+\]
 
-What has **not** disappeared is the functional distinction between:
+The major removed implementation mass is:
 
-```text
-what the correction contract makes consequential
-what evidence changes the warranted correction
-what acquisition burden makes worth paying
-which currently accessible refinement is maximal
-when continuation should terminate
-```
+\[
+\boxed{
+\begin{aligned}
+\Pi_{\rm DP}&\downarrow\\
+STOP_{\rm primitive}&\downarrow\\
+(V,C)_{\rm separate}&\downarrow\\
+R_{\rm corr}^{\rm explicit}&\downarrow\\
+q_{\rm cardinal}&\downarrow\\
+\text{full ranking}&\downarrow\\
+\text{explicit 15-item access menu}&\downarrow.
+\end{aligned}
+}
+\]
+
+What has **not** disappeared is:
+
+\[
+\boxed{
+\text{correction contract}
++
+\text{anchored burden}
++
+\text{access path}
++
+\text{latent experiment specification}.
+}
+\]
 
 ---
 
-## 5. Representation ceilings versus learner failure
+## 5. Accessibility-specific specification accounting
 
-The current valuation branch contains four independent impossibility-style certificates:
+The accessibility audit explicitly separates:
+
+\[
+\boxed{
+B_{\rm total}
+=
+B_{\mathcal E^\star}
++
+B_{\rm access}.
+}
+\]
+
+The valid primary substitution changed only:
+
+\[
+\boxed{
+B_{\rm access}:15\rightarrow1
+}
+\]
+
+while:
+
+\[
+\boxed{
+B_{\mathcal E^\star}=\text{constant}.
+}
+\]
+
+The full access ledger was:
+
+| Interface | menu | generator | grammar | semantic hints | search constraints | total |
+|---|---:|---:|---:|---:|---:|---:|
+| A0 explicit menu | 15 | 0 | 0 | 0 | 0 | 15 |
+| A1 all registry | 0 | 1 | 0 | 0 | 0 | **1** |
+| A2 no access | 0 | 0 | 0 | 0 | 0 | 0 |
+| A3 first 7 | 0 | 1 | 0 | 0 | 1 | 2 |
+| A4 target lookup | 0 | 1 | 0 | 15 | 0 | 16 |
+
+Therefore the valid success is a genuine **access-interface contraction**:
+
+\[
+\boxed{
+B_{\rm access}\downarrow
+\land
+R_{\rm functional}\text{ preserved}.
+}
+\]
+
+But it is not yet a reduction of experiment ontology or probe semantics.
+
+---
+
+## 6. Representation / accessibility ceilings versus learner failure
+
+The branch now contains multiple structural impossibility certificates:
 
 \[
 \boxed{
@@ -601,7 +656,7 @@ The current valuation branch contains four independent impossibility-style certi
 
 \[
 \boxed{
-\operatorname{Ceiling}(Q^\bot+Pareto)=17/24
+\operatorname{Ceiling}(Q^\bot+\mathrm{Pareto})=17/24
 }
 \]
 
@@ -620,21 +675,37 @@ The current valuation branch contains four independent impossibility-style certi
 }
 \]
 
-and:
-
 \[
 \boxed{
-\operatorname{Ceiling}(\text{relative burden differences without COMMIT anchor})=4/5.
+\operatorname{Ceiling}(\text{relative burden without COMMIT anchor})=4/5
 }
 \]
 
-These failures arise from representation collisions, not weak optimization.
-
-The relevant methodological rule remains:
+and now the exact accessibility-coverage certificate:
 
 \[
 \boxed{
-\text{epistemic/representational impossibility}
+\operatorname{Ceiling}(A3)=7/15.
+}
+\]
+
+The accessibility failure is not a learner failure. In the missing A3 contexts:
+
+\[
+\boxed{
+e^\star\in\mathcal E^\star
+\land
+Q_{\rm acquire}\text{ would select }e^\star
+\land
+e^\star\notin A.
+}
+\]
+
+Thus:
+
+\[
+\boxed{
+\text{epistemic / representational / accessibility impossibility}
 \neq
 \text{inference failure}.
 }
@@ -642,231 +713,134 @@ The relevant methodological rule remains:
 
 ---
 
-## 6. Specification-burden accounting
-
-The anti-scaffold question remains:
-
-\[
-\boxed{
-\textbf{Where did the complexity go?}
-}
-\]
-
-### Explicit `R_corr` removal
-
-The previous implementation already derived `R_corr` from evidence consequences, then exposed the scalar to the controller.
-
-The `b7c068b` replacement computes the correction comparison directly from the frozen evidence partition and correction contract.
-
-Therefore:
-
-\[
-\boxed{B_{\rm controller}\downarrow}
-\]
-
-but:
-
-\[
-\boxed{B_{\rm external}\not\downarrow}.
-\]
-
-This is a real controller-interface contraction but not an external-substrate reduction.
-
-### Acquisition burden ablation
-
-`kappa` is genuinely supplied per candidate in the current valuation panel.
-
-Removing it would reduce external specification, but the no-burden representation fails at ceiling `1/4`.
-
-Reducing it to ordinal burden also fails at `1/4`.
-
-Retaining only relative burden differences improves the ceiling to `4/5` but loses the absolute COMMIT boundary.
-
-Thus no successful external-specification reduction of acquisition burden has yet been demonstrated.
-
-A future substitute counts only if:
-
-\[
-\boxed{
-B_{\rm external}\downarrow
-\land
-R_{\rm functional}\text{ preserved}.
-}
-\]
-
-Supplying winners, affordability labels, compensated answers, or rank tables remains oracle displacement.
-
----
-
 ## 7. Provenance and regression status
 
 Provenance remains layered rather than collapsed.
 
-### Fresh valuation-role-minimality evidence at `b7c068b`
-
-Cut R:
+### Fresh accessibility evidence at `6355333`
 
 ```text
 64 anonymous encodings
-512 prior multi-candidate states
-512/512 no-explicit-R_corr choices
-128/128 contract-aware mirror choices
-contract-blind mirror ceiling 1/2
+15 contexts per encoding
+960 context-encoding evaluations
+
+A0 explicit menu:
+  reachability 960/960
+  choice agreement 960/960
+  B_access 15
+
+A1 ALL_REGISTRY:
+  reachability 960/960
+  choice agreement 960/960
+  B_access 1
+
+A2 no access:
+  reachability 0/960
+  choice agreement 0/960
+
+A3 first 7:
+  reachability 448/960
+  choice agreement 448/960
+  exact coverage ceiling 7/15
+
+A4 target lookup:
+  choice agreement 960/960
+  B_access 16
+  oracle displacement
 ```
 
-Cut K:
+The latent semantic checksum was frozen across every access interface:
 
 ```text
-64 anonymous encodings
-5 burden states
-320/320 anchored-kappa reference choices
-relevance-only natural control 64/320
-no-burden ceiling 1/4
-burden-order ceiling 1/4
-relative-difference ceiling 4/5
+54b7375f6ff283a3dff9f06bdaf67cced806411c9277021b0f9579c50cf45e59
 ```
 
 ### Inherited hard regression assertions
 
-The older multi-candidate / valuation / STOP-navigation audits were not freshly process-reexecuted in the connector session used for `b7c068b`.
+The committed child executable imports the valuation-role-minimality audit and recursively hard-asserts the earlier multi-candidate, candidate-vs-COMMIT, and STOP/navigation certificates.
 
-The committed executable imports the full upstream audit chain and hard-asserts:
+Those older audits were not freshly process-reexecuted in the connector session used for `6355333`.
 
-```text
-multi-candidate:
-  512 encoded states
-  max-only 512/512
-  sign-only ceiling 13/24
-  Pareto ceiling 17/24
-
-candidate-vs-COMMIT:
-  320 decisions
-  baseline-vs-kappa mismatches 0
-
-STOP/navigation:
-  3584 visited decision points
-  1536 derived terminations
-  trace mismatches 0
-```
-
-The correct description is:
+The correct provenance statement is:
 
 \[
 \boxed{
-\textbf{fresh valuation-role-minimality result with inherited hard regression assertions}.
+\textbf{fresh accessibility result with inherited hard regression assertions}.
 }
 \]
 
-Do not describe `b7c068b` as a fresh end-to-end replay of all earlier audits.
+Do not describe `6355333` as a fresh end-to-end replay of all earlier audits.
 
 ---
 
-## 8. Current evidence-status summary
+## 8. Current empirical boundary
 
-\[
-\boxed{
-\begin{aligned}
-\Pi_{\rm DP}&:\;\text{implementation contingent / removed},\\
-STOP_{\rm primitive}&:\;\text{implementation contingent / removed},\\
-(V,C)_{\rm separate}&:\;\text{representation contingent / removed},\\
-Q^\bot&:\;\text{locally sufficient vs COMMIT, insufficient for multi-candidate choice},\\
-Pareto&:\;\text{insufficient under relevance/burden tradeoffs},\\
-q_{\rm cardinal}&:\;\text{representation contingent / removed},\\
-\text{full ranking}&:\;\text{representation contingent / removed},\\
-R_{\rm corr}^{\rm explicit}&:\;\text{controller representation contingent / removed},\\
-\text{correction contract grounding}&:\;\text{functional dependency survives},\\
-\text{burden absent / ordinal}&:\;\text{insufficient},\\
-\text{relative burden only}&:\;\text{insufficient for COMMIT anchor},\\
-\text{anchored quantitative burden}&:\;\text{functional dependency survives; encoding not uniquely identified},\\
-Q_{\rm acquire}^{\rm role}&:\;\text{maximal-class identification survives},\\
-S_{\rm refine}&:\;\text{functional role survives},\\
-T_{\rm stop}&:\;\text{functional role survives},\\
-A_{\rm probe}&:\;\text{supplied, necessity unresolved}.
-\end{aligned}
-}
-\]
-
-`P_ep,min` remains unresolved.
-
----
-
-## 9. Research order
-
-The dependency order can now advance one step:
+The empirical spine is now:
 
 \[
 \boxed{
 \text{geometry}
+\checkmark
 \rightarrow
 \text{navigation}
+\checkmark
 \rightarrow
-\text{valuation representation}
+\text{valuation}
+\checkmark
 \rightarrow
-\text{valuation role minimality}
+\text{accessibility contraction}
+\checkmark
 \rightarrow
-\boxed{\text{experiment accessibility}}
-\rightarrow
-\text{experiment-space construction}.
+\boxed{\text{experiment-space construction}}.
 }
 \]
 
-Valuation minimality is not globally solved, but the current frozen substrate has reached a useful boundary:
-
-- explicit relevance scalar removed;
-- correction-contract grounding localized;
-- burden-free, ordinal-burden, and relative-burden-only reductions ruled out;
-- anchored quantitative burden remains live.
-
-Further burden reduction would require a genuinely lower-level acquisition/resource consequence representation. Introducing such a representation now would change the probe/action substrate and therefore belongs with the accessibility-side question rather than another renamed valuation scalar.
-
-The next frontier is therefore `A_probe`.
-
-The anti-scaffold question becomes:
+The current accessibility result earns:
 
 \[
 \boxed{
-\textbf{where did experiment specification complexity go?}
-}
-\]
-
-Experiment-space construction / geometry repair remains later:
-
-\[
-\boxed{
-\mathfrak R_{E,t}
+\text{explicit access enumeration}
 \rightarrow
-\mathfrak R_{E,t+1}.
+\text{generic access to a fixed latent registry}.
 }
 \]
 
-No basin-opening claim follows from this consolidation.
-
----
-
-## 10. Current open question
-
-The next narrow dependency question is now:
+It does **not** earn:
 
 \[
 \boxed{
-\textbf{Can }A_{\rm probe}\textbf{ be reduced, derived, or generated while preserving the already-earned correction behavior without relocating experiment-specification complexity?}
+\mathcal E^\star
+\rightarrow
+\mathcal E^{\star\star}.
 }
 \]
 
-This question is **not yet an implemented audit**.
+It does not establish:
 
-The current freeze point is:
+- experiment invention;
+- probe-semantics generation;
+- registry construction;
+- experiment-ontology compression;
+- basin opening;
+- unrestricted experiment generation.
+
+The remaining specification bottleneck is now concentrated in:
 
 \[
 \boxed{
-\text{contract-derived corrective consequence}
-+
-\text{anchored quantitative acquisition burden}
-+
-\text{maximal-class choice}
+B_{\mathcal E^\star}.
 }
 \]
 
-inside the already-frozen navigation and termination roles.
+The next scientific question, if pursued, is:
 
-No experiment-accessibility intervention, experiment-space-construction claim, or next capability rung is introduced by this consolidation.
+\[
+\boxed{
+\textbf{
+Where does the latent experiment specification come from, and can that specification itself be reduced or constructed without relocating the experiment designer into a hidden grammar or oracle?
+}
+\]
+
+That is an **experiment-space-construction** question, not another accessibility audit.
+
+`P_ep,min` remains explicitly unresolved.
