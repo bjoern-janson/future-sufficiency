@@ -63,7 +63,7 @@ def latent_hist():
     for rid,sh in enumerate(SHIFTS):
         for src in ST:
             r,c=divmod(src,4)
-            for dr,$c in sh: z.append((rid,src,4*((r+dr)%4)+((c+dc)%4)))
+            for dr,dc in sh: z.append((rid,src,4*((r+dr)%4)+((c+dc)%4)))
     return tuple(z)
 LH=latent_hist(); assert len(LH)==384
 
