@@ -111,9 +111,83 @@ The governance boundary remains:
     capability expansion != authority expansion
     meta-capability expansion != goal expansion
 
+## Minimal-substrate objective
+
+`S_min` is **not** a universal substrate. Minimality is relative to a task family and a preregistered repair contract:
+
+    S_min(T, P)
+
+where:
+
+- `T` is the task distribution / task family under study;
+- `P` is the preregistered set of future-sufficiency properties that the repair process must retain.
+
+The empirical object is therefore an intervention on supplied structure:
+
+    S --remove s_i--> S^{-i} --> Delta R_i
+
+where `Delta R_i` is not merely a performance change. It is a localized change in one or more repair functions, such as:
+
+- discovery;
+- authorization;
+- persistent binding;
+- held-out transfer;
+- reopenability;
+- termination discipline.
+
+The resulting object is a dependency map:
+
+    G_repair = Dep(R | T, P)
+
+A supplied assumption `s_i` is **not necessary** for the chosen `(T, P)` contract when:
+
+    R(S \ {s_i}) still satisfies P on T.
+
+A supplied assumption `s_i` is **necessary** when its removal produces a preregistered, localized failure signature for at least one property in `P`.
+
+Minimality should be understood with respect to a declared partial order over substrates, not as a claim that there is one globally smallest representation system.
+
+## Minimality certificate
+
+The strongest eventual result is not another capability demo but a minimality certificate:
+
+    S_min(T, P)
+    +
+    for every s_i in S_min,
+    removal(s_i) produces a non-zero localized repair failure.
+
+A valid certificate should contain, for every retained assumption:
+
+1. the exact intervention removing or weakening it;
+2. the preregistered repair property expected to fail;
+3. the observed failure signature;
+4. matched controls showing the failure is not due to incidental loss of compute, probes, memory or storage;
+5. the narrow necessity claim earned by that result;
+6. whether the assumption is empirically necessary or constitutive of the problem definition.
+
+This turns the project trajectory into:
+
+    capability accumulation
+    -> dependency identification
+    -> minimal substrate certificate.
+
+The stopping rule is reached when each remaining supplied assumption is either:
+
+- empirically necessary for the declared `(T, P)` repair contract; or
+- constitutive of the problem definition, such that removing it makes the target property undefined rather than falsified.
+
 ## Immediate empirical obligation
 
-The cleanest next discriminant is **mechanism transfer across substrates**.
+The next phase is **dependency identification**, not another rung.
+
+Use the operating rule:
+
+    one supplied assumption
+    -> one intervention
+    -> one preregistered failure signature
+    -> minimal revision of the substrate hypothesis.
+
+The first high-value discriminant remains mechanism transfer across substrates, but it should now be treated as one dependency intervention rather than as a new capability level.
 
 Hold fixed only the abstract requirement:
 
@@ -126,20 +200,12 @@ while varying at least:
     primitive algebra
     composition semantics
 
-A positive result would support:
+A positive result would weaken the necessity of the current symbolic substrate and support mechanism transfer rather than merely program synthesis inside one carefully designed formalism. A negative result should be localized to the shallowest substrate dependency that explains the failure.
 
-    mechanism transfer
-
-rather than merely:
-
-    program synthesis inside one carefully designed formalism.
-
-The strongest matched control should receive the same probes, search effort, compute, memory and storage but retain a substrate-specific repair strategy that cannot transfer.
-
-An orthogonal downstream bridge to AI-R&D is then:
+An orthogonal downstream bridge to AI-R&D remains:
 
     can future-sufficiency detect when a highly verifiable improvement loop is optimizing a future-insufficient proxy?
 
-That is the point where the project moves from increasingly general symbolic repair toward the harder problem of robust recursive research improvement.
+That should remain separate from substrate-generalization tests so that failures remain diagnostically interpretable.
 
 **Scientific rule:** empirical obligation > further abstraction.
