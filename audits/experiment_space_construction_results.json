@@ -1,0 +1,89 @@
+{
+  "preregistration_commit": "fd99c09e6d65dd0e73a6909bd38fc1d8d55c6bb3",
+  "gate": "G2_supplied_target_blind_experiment_space_expansion",
+  "encodings": 64,
+  "contexts_per_encoding": 4,
+  "context_encoding_evaluations": 256,
+  "old_closure": {
+    "size": 15,
+    "checksum_sha256": "809abd918f17a77c779f76ce1b14ba4661e63b6834c4bec475fbe8a8f8eeed49",
+    "exhaustively_recomputed": true
+  },
+  "expanded_closure": {
+    "size": 1023,
+    "checksum_sha256": "c51cc447000204a4c32e205d4e8daab954a52b80939664bbab2968629299efb7",
+    "strictly_contains_old_closure": true
+  },
+  "novelty_proof": {
+    "n1": {"outside_old_closure_encodings": 64},
+    "n2": {"outside_old_closure_encodings": 64},
+    "n3": {"outside_old_closure_encodings": 64},
+    "n4": {"outside_old_closure_encodings": 64}
+  },
+  "decision_relevance": {
+    "n1": {"baseline_bayes_accuracy": 0.75, "exact_target_R_corr": 0.25, "exact_target_margin": 0.15, "old_closure_max_R_corr": 0.0},
+    "n2": {"baseline_bayes_accuracy": 0.75, "exact_target_R_corr": 0.25, "exact_target_margin": 0.15, "old_closure_max_R_corr": 0.0},
+    "n3": {"baseline_bayes_accuracy": 0.75, "exact_target_R_corr": 0.25, "exact_target_margin": 0.15, "old_closure_max_R_corr": 0.0},
+    "n4": {"baseline_bayes_accuracy": 0.625, "exact_target_R_corr": 0.375, "exact_target_margin": 0.275, "old_closure_max_R_corr": 0.0}
+  },
+  "condition_results": {
+    "G20_old_S0": {"family_size": 15, "target_reachable": 0, "target_reachability": 0.0, "exact_target_chosen": 0, "exact_target_choice_rate": 0.0, "commit_decisions": 256, "experiment_space_changed_vs_S0": false},
+    "G21_AND_plus_post_extension_closure": {"family_size": 1023, "target_reachable": 256, "target_reachability": 1.0, "exact_target_chosen": 256, "exact_target_choice_rate": 1.0, "commit_decisions": 0, "experiment_space_changed_vs_S0": true},
+    "G22_NOT_no_new_geometry": {"family_size": 15, "target_reachable": 0, "target_reachability": 0.0, "exact_target_chosen": 0, "exact_target_choice_rate": 0.0, "commit_decisions": 256, "experiment_space_changed_vs_S0": false},
+    "G23_AND_one_layer_only": {"family_size": 120, "target_reachable": 192, "target_reachability": 0.75, "exact_target_chosen": 192, "exact_target_choice_rate": 0.75, "commit_decisions": 0, "experiment_space_changed_vs_S0": true},
+    "G24_direct_target_registry": {"family_size": 19, "target_reachable": 256, "target_reachability": 1.0, "exact_target_chosen": 256, "exact_target_choice_rate": 1.0, "commit_decisions": 0, "experiment_space_changed_vs_S0": true},
+    "G25_transparent_macro_alias": {"family_size": 1023, "target_reachable": 256, "target_reachability": 1.0, "exact_target_chosen": 256, "exact_target_choice_rate": 1.0, "commit_decisions": 0, "experiment_space_changed_vs_S0": true}
+  },
+  "G23_family": {
+    "size": 120,
+    "checksum_sha256": "8d3a5ecddbcf823c2ffca59f2490d2950caea216816b3c8e9af58bb2dfbb5dc1",
+    "target_coverage_per_encoding": 3,
+    "coverage_ceiling": 0.75,
+    "aggregate_target_reachability_ceiling": 192,
+    "aggregate_total": 256,
+    "ceiling_exceeded": false,
+    "n4_exact_target_reachable": false,
+    "n4_best_partial_R_corr": 0.125,
+    "n4_best_partial_margin": 0.025,
+    "n4_co_maximal_partial_partitions": 18
+  },
+  "construction_specification_ledger": {
+    "G20_old_S0": {"vector": [4,1,1,0,2,0], "visible_total": 8, "expanded_total": 8, "target_specific_semantics": 0},
+    "G21_AND_plus_post_extension_closure": {"vector": [4,2,2,0,2,0], "visible_total": 10, "expanded_total": 10, "target_specific_semantics": 0, "valid_gate2_evidence": true},
+    "G22_NOT_no_new_geometry": {"vector": [4,2,2,0,2,0], "visible_total": 10, "expanded_total": 10, "valid_gate2_evidence": false},
+    "G23_AND_one_layer_only": {"vector": [4,2,2,0,2,0], "visible_total": 10, "expanded_total": 10, "valid_gate2_evidence": false},
+    "G24_direct_target_registry": {"vector": [4,1,1,4,2,0], "visible_total": 12, "expanded_total": 12, "target_specific_semantics": 4, "classification": "target-specific specification displacement", "valid_gate2_evidence": false},
+    "G25_transparent_macro_alias": {"visible_total": 1, "expanded_total": 10, "classification": "alias for S1; no independent evidence", "valid_gate2_evidence": false},
+    "G25_opaque_direct_family_macro": {"visible_total": 1, "expanded_direct_semantic_bindings": 1023, "expanded_total": 1023, "classification": "hidden specification", "valid_gate2_evidence": false}
+  },
+  "primary_causal_signature": {
+    "B_construction_S0": 8,
+    "B_construction_S1": 10,
+    "B_construction_increases": true,
+    "C0_strict_subset_C1": true,
+    "novel_targets_outside_C0": true,
+    "novel_targets_inside_C1": true,
+    "target_blind_extension": true,
+    "novel_target_reachability": 256,
+    "novel_target_choice": 256,
+    "total": 256,
+    "local_basin_opening_relative_to_S0": true,
+    "autonomous_extension_discovery_tested": false,
+    "extension_authorization_tested": false
+  },
+  "anonymous_encoding": {
+    "primitive_handle_permutation": true,
+    "world_label_permutation": true,
+    "context_identifier_permutation": true,
+    "emitted_experiment_handle_permutation": true,
+    "emitted_output_token_polarity_flips": true,
+    "operator_semantics_internal_before_public_output_relabeling": true
+  },
+  "upstream_regression": {
+    "gate1_commit": "c661e58a97b3dbcc580bd096835aa9d2e09f0490",
+    "hard_assertions_wired_in_executable": true,
+    "freshly_process_replayed_in_connector_session": false,
+    "required_gate1_anchors": {"R0_exact_extensional_encodings": 64, "R1_exact_extensional_encodings": 64, "R1_downstream_matches": 960, "R1_expanded_B_E_star": 8, "R2_downstream_matches": 256, "R3_downstream_matches": 640, "A1_accessibility_reachability": 960, "A1_accessibility_choices": 960, "A1_B_access": 1, "A3_accessibility_reachability": 448},
+    "provenance": "fresh Gate-2 panel with inherited hard regression assertions"
+  }
+}
