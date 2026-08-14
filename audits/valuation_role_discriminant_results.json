@@ -1,0 +1,44 @@
+{
+  "preregistration_commit": "dec7d9efe868437ebda136a082ce0e829c8eb9de",
+  "execution_scope": "valuation panel executed in-session; STOP regression inherited from unchanged 4694382 and reasserted by executable audit when run in-repo",
+  "encodings": 64,
+  "valuation_cases": ["A", "B", "C", "D", "B+"],
+  "expected_signature": [1, 0, 1, 0, 0],
+  "baseline_signature": [1, 0, 1, 0, 0],
+  "scale_free_signature": [1, 0, 1, 0, 0],
+  "baseline_vs_scale_free_mismatches": 0,
+  "valuation_decisions_checked": 320,
+  "canonical_case_stats": {
+    "A": {"information_bits": 3.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "cost": 1.0, "vc_margin": 1.5, "kappa": 0.1, "expected_action": "ACQUIRE"},
+    "B": {"information_bits": 3.0, "post_evidence_bayes_accuracy": 0.5, "correction_relevance": 0.0, "cost": 1.0, "vc_margin": -1.0, "kappa": 0.1, "expected_action": "COMMIT"},
+    "C": {"information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "cost": 1.0, "vc_margin": 1.5, "kappa": 0.1, "expected_action": "ACQUIRE"},
+    "D": {"information_bits": 3.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "cost": 3.0, "vc_margin": -0.5, "kappa": 0.3, "expected_action": "COMMIT"},
+    "B+": {"information_bits": 4.0, "post_evidence_bayes_accuracy": 0.5, "correction_relevance": 0.0, "cost": 1.0, "vc_margin": -1.0, "kappa": 0.1, "expected_action": "COMMIT"}
+  },
+  "negative_controls": {
+    "information_only_signature": [1, 1, 1, 1, 1],
+    "information_only_wrong_cases": ["B", "D", "B+"],
+    "correction_relevance_only_signature": [1, 0, 1, 1, 0],
+    "correction_relevance_only_wrong_cases": ["D"]
+  },
+  "feature_classification_ceilings": {
+    "I": 0.8,
+    "R_corr": 0.8,
+    "I_C": 0.8,
+    "I_R_corr": 0.8,
+    "I_over_C": 0.6,
+    "R_corr_C": 1.0
+  },
+  "specification_ledger": {
+    "baseline_V_C": {"global_numeric_fields": 1, "per_case_numeric_fields": 5, "direct_target_decision_fields": 0, "numeric_slots": 6, "stores_target_decisions": false},
+    "scale_free_kappa": {"global_numeric_fields": 0, "per_case_numeric_fields": 5, "direct_target_decision_fields": 0, "numeric_slots": 5, "stores_target_decisions": false},
+    "order_table": {"global_numeric_fields": 0, "per_case_numeric_fields": 0, "direct_target_decision_fields": 5, "stores_target_decisions": true, "oracle_displacement": true}
+  },
+  "stop_regression_contract": {
+    "source_commit": "46943821f9dec0ed188410c5c22fcad0f21b5786",
+    "encodings": 64,
+    "visited_decision_points": 3584,
+    "derived_termination_decisions": 1536,
+    "trace_mismatches": 0
+  }
+}
