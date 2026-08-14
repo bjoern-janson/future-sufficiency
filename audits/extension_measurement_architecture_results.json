@@ -1,0 +1,120 @@
+{
+  "Q_extension_defined": false,
+  "Rubi_comparator_used": false,
+  "adoption_semantics_present": false,
+  "aggregation_defined": false,
+  "anonymous_encoding": {
+    "candidate_handle_renaming": true,
+    "contract_identifier_permutation": true,
+    "enumeration_order_permutation": true,
+    "primitive_experiment_handle_permutation": true,
+    "public_binary_output_polarity_flips": true,
+    "regime_identifier_permutation": true,
+    "stress_identifier_permutation": true,
+    "world_state_relabeling": true
+  },
+  "architecture_identified_in_finite_regime": true,
+  "authorization_performed": false,
+  "binding_performed": false,
+  "calibration_anchors": {
+    "B": {
+      "explicit_expanded_total": 3,
+      "opaque_hidden_charged": 2,
+      "opaque_macro_expanded_total": 3,
+      "target_specific_bindings_charged": 4,
+      "target_specific_expanded_total": 6,
+      "transparent_alias_expanded_total": 3
+    },
+    "DeltaC": {
+      "baseline_checksum_sha256": "809abd918f17a77c779f76ce1b14ba4661e63b6834c4bec475fbe8a8f8eeed49",
+      "basin_opening_checksum_sha256": "8d3a5ecddbcf823c2ffca59f2490d2950caea216816b3c8e9af58bb2dfbb5dc1",
+      "basin_opening_delta": [105,0],
+      "noop_delta": [0,0],
+      "removal_delta": [0,8]
+    },
+    "DeltaV": {
+      "known_controlled_effect": 0.25,
+      "positive_affine_scaling_preserved": true,
+      "semantic_noop_effect": 0.0
+    },
+    "collateral": {
+      "localized_effect_vector": [0.0,0.0,0.5],
+      "noop_vector": [0.0,0.0,0.0]
+    },
+    "reopen": {
+      "block_frequency": 0.5,
+      "extra_authority_injected": false,
+      "immediate_effect_block": 0.25,
+      "immediate_effect_preserve": 0.25,
+      "preserve_frequency": 1.0
+    },
+    "scope": {
+      "common_support_only": "shared_valid",
+      "failed_regimes_excluded": true,
+      "regimes": 11,
+      "untested_regimes_excluded": true
+    }
+  },
+  "candidate_comparison_performed": false,
+  "claim_boundary": {
+    "adoption_licensed": false,
+    "aggregate_extension_value_licensed": false,
+    "candidate_measurement_may_be_next_gate": true,
+    "candidate_ranking_licensed": false
+  },
+  "coordinate_pass": {
+    "B": true,
+    "DeltaC": true,
+    "DeltaV": true,
+    "collateral": true,
+    "reopen": true,
+    "scope": true
+  },
+  "coordinate_results": {
+    "B": {"F_triggered":64,"invariance_ok":64,"lineage_ok":64,"pass":64,"total":64},
+    "DeltaC": {"F_triggered":64,"invariance_ok":64,"lineage_ok":64,"pass":64,"total":64},
+    "DeltaV": {"F_triggered":64,"invariance_ok":64,"lineage_ok":64,"pass":64,"total":64},
+    "collateral": {"F_triggered":64,"invariance_ok":64,"lineage_ok":64,"pass":64,"total":64},
+    "reopen": {"F_triggered":64,"invariance_ok":64,"lineage_ok":64,"pass":64,"total":64},
+    "scope": {"F_triggered":64,"invariance_ok":64,"lineage_ok":64,"pass":64,"total":64}
+  },
+  "cross_coordinate_separation": {
+    "counts": {"X1":64,"X2":64,"X3":64,"X4":64,"X5":64},
+    "pass": {"X1":true,"X2":true,"X3":true,"X4":true,"X5":true}
+  },
+  "encodings_per_finite_calibration_family": 64,
+  "gate": "extension_measurement_architecture_identification_only",
+  "lineage_independence": {
+    "examples": {
+      "B": {"dedup":"genuinely_reusable_only","expanded_and_incremental":true,"sources":"new/inherited/hidden/target_specific","unit":"semantic_clause"},
+      "DeltaC": {"baseline":"C0","baseline_checksum":"809abd918f17a77c779f76ce1b14ba4661e63b6834c4bec475fbe8a8f8eeed49","closure":"exhaustive_fixed_point","completeness":true,"equivalence":"partition_mod_polarity"},
+      "DeltaV": {"baseline":"C0","candidate":"controlled_exact_add","contract":"K_dv_cal","estimator":"exact_paired","evaluator":"E_dv_holdout","horizon":1,"intervention":"construction_only","transforms":"positive_affine+semantic_relabel"},
+      "collateral": {"aggregation":"forbidden","contracts":["K1","K2","K3"],"estimator":"exact_paired_vector","evaluators":["E1","E2","E3"]},
+      "reopen": {"certificate":"exhaustive_BFS","challenge":"frozen_graph","deadline":2,"extra_authority":false,"stress_checksum":"a2469d4bedf9d138d32b7517c72b62a89314153370f871ac9aad176eef2bf75d"},
+      "scope": {"common_intersection":"exact","matrix":"PASS/FAIL/NOT-TESTED","out_of_scope_default":true,"rule":"PASS_only"}
+    },
+    "independent_coordinate_lineage": true
+  },
+  "measurement_invalidity_controls": {
+    "B": "visible-only alias count falsely falls -> rejected",
+    "DeltaC": "raw syntax/complement counting falsely expands geometry -> rejected",
+    "DeltaV": "syntax-contaminated no-op falsely nonzero -> rejected",
+    "collateral": "scalar aggregation substituted for native vector -> rejected",
+    "reopen": "immediate-performance proxy cannot separate proven future paths -> rejected",
+    "scope": "favorable-effect override includes FAIL/NOT-TESTED -> rejected"
+  },
+  "preregistration_commit": "338981353778dd4efd6c5e0b0106a2d0828710c9",
+  "upstream_regression": {
+    "freshly_process_replayed_in_connector_session": false,
+    "hard_assertions_wired_in_executable": true,
+    "inherited_closure_gate2_gate1_accessibility_valuation_navigation_assertions": true,
+    "provenance": "fresh measurement-identification panel with inherited hard regression assertions",
+    "required_synthesis_anchors": {
+      "A_B_semantic_candidate_sets_distinct_encodings": 64,
+      "C_BASE_BASE_only_adequate_encodings": 0,
+      "D_any_M0_repair_supported_encodings": 0,
+      "coarse_synthesis_correct": 256
+    },
+    "synthesis_commit": "9a50f07a1da3deee288366b47a0bd3a6a989e0a6"
+  }
+}
