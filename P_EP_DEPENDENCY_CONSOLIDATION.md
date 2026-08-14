@@ -2,7 +2,7 @@
 
 ## Status
 
-This document consolidates the experiment-planning dependency picture after the reachable-refinement, controller-substitution, STOP-substitution, valuation-role, multi-candidate acquisition-order, valuation-role-minimality, accessibility-contraction, latent-registry-minimality, and experiment-space-construction audits.
+This document consolidates the experiment-planning dependency picture after the reachable-refinement, controller-substitution, STOP-substitution, valuation-role, multi-candidate acquisition-order, valuation-role-minimality, accessibility-contraction, latent-registry-minimality, experiment-space-construction, and closure-insufficiency-diagnosis audits.
 
 It is a **dependency ledger**, not a new theory layer and not a `P_ep,min` certificate.
 
@@ -18,6 +18,7 @@ b7c068b  valuation-role minimality audit
 6355333  accessibility contraction audit
 c661e58  latent-registry minimality audit
 ee1b9ac  experiment-space construction discriminant
+7e3871c  closure-insufficiency diagnosis audit
 ```
 
 The current empirical spine is:
@@ -36,29 +37,21 @@ G_1:\text{ registry compression}\checkmark
 \rightarrow
 G_2:\text{ supplied-extension basin opening}\checkmark
 \rightarrow
-\boxed{\text{discovery / authorization of the opening: unresolved}}.
+\text{closure diagnosis}\checkmark
+\rightarrow
+\boxed{\text{extension discovery: unresolved}}.
 }
 \]
 
-The governing distinctions remain:
+The governing distinctions now include:
 
 \[
-\boxed{\text{removed implementation}\neq\text{removed functional role}}
+\boxed{\text{failure}\neq\text{closure insufficiency}}
 \]
 
 \[
-\boxed{\text{behavioral substitution}\neq\text{substrate reduction}}
+\boxed{\text{closure diagnosis}\neq\text{extension discovery}}
 \]
-
-\[
-\boxed{\text{accessibility contraction}\neq\text{experiment construction}}
-\]
-
-\[
-\boxed{\text{registry compression}\neq\text{registry expansion}}
-\]
-
-and now:
 
 \[
 \boxed{\text{basin opening under a supplied extension}\neq\text{discovery of the opening}.}
@@ -66,196 +59,111 @@ and now:
 
 ---
 
-## 1. Empirical contraction / dependency history
+## 1. Empirical dependency history
 
-### 1.1 Reachable refinement geometry
+### 1.1 Navigation / termination
 
-At `fadf503`, matched static resources but different contingent refinement geometry produced different timely correction possibility.
-
-Earned:
+At `68f2338`, Bellman dynamic programming was replaced by a reachability-preserving controller with zero actions outside the DP-optimal set across 3,584 visited decisions:
 
 \[
-\boxed{\text{eventual identifiability}\neq\text{future-sufficient identifiability}.}
+\boxed{\Pi_{\rm DP}\notin N_{P_{\rm ep}}.}
 \]
 
-The role-level dependency is that correction-relevant contingent refinement paths must remain reachable before the applicable commitment boundary.
-
-### 1.2 Dynamic programming
-
-At `68f2338`, Bellman dynamic programming was replaced by a reachability-preserving controller with zero actions outside the DP-optimal set across 3,584 visited decisions.
-
-Therefore:
-
-\[
-\boxed{\Pi_{\rm DP}\notin N_{P_{\rm ep}}}
-\]
-
-for the observed navigation behavior.
-
-Surviving role:
+The surviving role is:
 
 \[
 \boxed{S_{\rm refine}=\text{preserve correction-relevant contingent refinement structure}.}
 \]
 
-### 1.3 Primitive STOP
-
-At `4694382`, primitive `STOP` was removed. Derived termination matched all 1,536 primitive STOP decisions with zero normalized trajectory mismatches.
-
-Therefore:
+At `4694382`, primitive `STOP` was removed. Derived termination matched all 1,536 primitive STOP decisions with zero normalized trajectory mismatches:
 
 \[
-\boxed{STOP_{\rm primitive}\notin N_{P_{\rm ep}}}
+\boxed{STOP_{\rm primitive}\notin N_{P_{\rm ep}}.}
 \]
 
-while:
+The surviving role is:
 
 \[
-\boxed{T_{\rm stop}=\text{terminate when no warranted continuation remains}}
+\boxed{T_{\rm stop}=\text{terminate when no warranted continuation remains}.}
 \]
 
-survives.
+### 1.2 Valuation
 
-### 1.4 Separate cardinal `V,C`
-
-At `c97a5cf`, separate cardinal `V,C` was replaced by normalized burden `kappa=C/V` with zero mismatches across 320 valuation decisions.
-
-Therefore:
+At `c97a5cf`, separate cardinal `(V,C)` was replaced by `kappa=C/V` with zero mismatches over 320 decisions:
 
 \[
 \boxed{(V,C)_{\rm separate}\notin N_{P_{\rm ep}}.}
 \]
 
-The audit also preserved:
-
-\[
-\boxed{I(e)\neq R_{\rm corr}(e)\neq Q_{\rm acquire}(e).}
-\]
-
-### 1.5 Candidate-vs-COMMIT and Pareto are insufficient
-
 At `9a32f94`:
 
 \[
-\boxed{\operatorname{Ceiling}(Q^\bot)=13/24}
+\operatorname{Ceiling}(Q^\bot)=13/24,
+\qquad
+\operatorname{Ceiling}(Q^\bot+\mathrm{Pareto})=17/24.
+\]
+
+An on-demand compensated comparator and max-only co-maximal tournament matched the cardinal reference on all 512 encoded states:
+
+\[
+\boxed{q_{\rm cardinal}\notin N_{P_{\rm ep}}},
+\qquad
+\boxed{\text{stored full ranking}\notin N_{P_{\rm ep}}.}
+\]
+
+At `b7c068b`, explicit controller-side `R_corr` was removed while preserving 512/512 choices. Contract-aware mirror choices were 128/128; the contract-blind ceiling was `1/2`.
+
+The acquisition-burden ablations established:
+
+\[
+\operatorname{Ceiling}(\text{no burden})
+=
+\operatorname{Ceiling}(\text{burden order})
+=
+1/4
 \]
 
 and:
 
 \[
-\boxed{\operatorname{Ceiling}(Q^\bot+\mathrm{Pareto})=17/24.}
+\operatorname{Ceiling}(\text{relative burden without COMMIT anchor})=4/5.
 \]
 
-Thus candidate-vs-COMMIT sign and uncompensated dominance are insufficient for the audited multi-candidate policy.
-
-### 1.6 Cardinal `q` and stored total ranking
-
-The on-demand compensated comparator:
+The surviving valuation role is:
 
 \[
-e_i\succ_Q e_j
-\iff
-R_i+\kappa_j>R_j+\kappa_i
+\boxed{
+\text{derive corrective consequence under the correction contract}
++
+\text{quantitative acquisition burden anchored to COMMIT}
+\rightarrow
+\text{maximal worthwhile refinement}.
+}
 \]
 
-matched the cardinal reference on all 512 encoded states.
+### 1.3 Accessibility
 
-A max-only co-maximal tournament also matched 512/512 without storing a full ranking.
-
-Therefore:
-
-\[
-\boxed{q_{\rm cardinal}\notin N_{P_{\rm ep}}}
-\]
-
-and:
-
-\[
-\boxed{\text{stored full ranking}\notin N_{P_{\rm ep}}}
-\]
-
-for the observed choices.
-
-Surviving acquisition role:
-
-\[
-\boxed{Q_{\rm acquire}^{\rm role}=\text{identify a currently maximal worthwhile refinement}.}
-\]
-
-### 1.7 Explicit `R_corr`
-
-At `b7c068b`, explicit controller-side `R_corr` was removed. Corrective consequence was derived directly from the evidence partition and frozen correction contract, preserving 512/512 multi-candidate choices.
-
-Contract dependence:
-
-```text
-contract-aware:       128/128
-contract-blind ceiling: 1/2
-```
-
-Therefore:
-
-\[
-\boxed{R_{\rm corr}^{\rm explicit}\text{ is representation-contingent}}
-\]
-
-while correction relevance remains contract-grounded.
-
-### 1.8 Acquisition burden
-
-The same audit found:
-
-\[
-\boxed{\operatorname{Ceiling}(-\kappa)=1/4}
-\]
-
-\[
-\boxed{\operatorname{Ceiling}(\text{burden order only})=1/4}
-\]
-
-\[
-\boxed{\operatorname{Ceiling}(\text{relative burden without COMMIT anchor})=4/5.}
-\]
-
-Anchored quantitative burden remained exact on 320/320.
-
-Surviving role:
-
-\[
-\boxed{\textbf{quantitative acquisition burden anchored to the COMMIT boundary}.}
-\]
-
-The literal scalar encoding is not claimed uniquely necessary.
-
-### 1.9 Explicit access menu
-
-At `6355333`, the fixed 15-probe latent registry remained unchanged while the access interface contracted:
+At `6355333`:
 
 \[
 \boxed{B_{\rm access}:15\rightarrow1}
 \]
 
-from 15 explicit menu clauses to one target-blind `ALL_REGISTRY` rule, preserving:
+while preserving:
 
 ```text
 target reachability 960/960
 downstream choice   960/960
 ```
 
-Therefore:
-
-\[
-\boxed{\text{explicit per-probe access enumeration}\notin N_{P_{\rm ep}}}
-\]
-
-for the audited fixed registry.
+Therefore explicit per-probe access enumeration is not necessary for the audited fixed registry.
 
 Controls:
 
 ```text
-no access:             0/960
-first 7 of 15:       448/960 = 7/15
-target lookup:        960/960 but 15 semantic hints -> oracle displacement
+no access      0/960
+first 7/15   448/960 = 7/15
+target lookup 960/960 but 15 semantic hints -> oracle displacement
 ```
 
 Earned:
@@ -264,19 +172,9 @@ Earned:
 \boxed{\text{latent experiment existence}\neq\text{experiment accessibility}.}
 \]
 
-### 1.10 Explicit latent registry
+### 1.4 Registry compression
 
-At `c661e58`, Gate 1 attacked registry specification while holding the useful experiment family extensionally fixed.
-
-Reference:
-
-\[
-\boxed{B_{\mathcal E^\star}^{R0}=15}
-\]
-
-for 15 explicit semantic bindings.
-
-Primary derived substrate:
+At `c661e58`, Gate 1 replaced 15 explicit experiment-semantic bindings with:
 
 ```text
 4 coordinate evidence primitives
@@ -288,227 +186,210 @@ Primary derived substrate:
 so:
 
 \[
-\boxed{B_{\mathcal E^\star}^{R1}=8.}
+\boxed{B_{\mathcal E^\star}:15\rightarrow8}
 \]
 
-Across 64 encodings:
+while preserving:
 
 ```text
-15/15 target partitions recovered per encoding
+15/15 target partitions per encoding
 precision / recall       1.0 / 1.0
 exact extensional match  64/64
 extra partitions         0
 downstream choices       960/960
 ```
 
-Therefore:
+Controls:
 
 \[
-\boxed{B_{\mathcal E^\star}:15\rightarrow8}
+\operatorname{Coverage}(R2)=4/15,
+\qquad
+\operatorname{Coverage}(R3)=10/15.
 \]
 
-while:
+The opaque family macro was behaviorally exact but expanded to 15 hidden semantic obligations; the context-target generator was oracle displacement.
+
+Earned:
 
 \[
-\boxed{\Pi(\mathcal E^\star_{R1})=\Pi(\mathcal E^\star_{R0}).}
+\boxed{\text{registry compression}\neq\text{registry expansion}.}
 \]
 
-The explicit 15-entry registry is not a necessary representation for that family.
+### 1.5 Supplied-extension basin opening
 
-This is **registry compression**, not registry expansion.
-
-### 1.11 Gate-1 controls
-
-R2, primitives only:
-
-\[
-\boxed{4/15\text{ registry recall}\rightarrow256/960.}
-\]
-
-R3, one XOR layer:
-
-\[
-\boxed{10/15\text{ registry recall}\rightarrow640/960.}
-\]
-
-Neither exceeded its extensional coverage ceiling.
-
-Thus:
-
-\[
-\boxed{\text{primitive availability}\neq\text{adequate compositional closure}.}
-\]
-
-R4, `ALL_PARITIES_4`, was behaviorally exact but expanded to 15 hidden semantic obligations. R5, context-to-target generation, achieved behavior only through 15 target hints and was oracle displacement.
-
-### 1.12 Gate 2: old closure is genuinely insufficient
-
-At `ee1b9ac`, the complete old Gate-1 construction substrate `S0` was recomputed rather than assumed.
-
-Observed:
+At `ee1b9ac`, the complete old closure was recomputed:
 
 ```text
 |C0| = 15
-C0 checksum = 809abd918f17a77c779f76ce1b14ba4661e63b6834c4bec475fbe8a8f8eeed49
+checksum =
+809abd918f17a77c779f76ce1b14ba4661e63b6834c4bec475fbe8a8f8eeed49
 ```
 
-Four nonlinear correction targets `n1...n4` were exhaustively checked against `C0`.
+Four nonlinear targets were outside `C0` in all 64 encodings and every old parity experiment had `R_corr=0` for those contexts.
 
-Across all 64 anonymous encodings:
-
-```text
-n1 outside C0: 64/64
-n2 outside C0: 64/64
-n3 outside C0: 64/64
-n4 outside C0: 64/64
-```
-
-Every old parity experiment had:
-
-\[
-\boxed{R_{\rm corr}=0}
-\]
-
-for every nonlinear context.
-
-With `kappa=0.1`, `S0` produced:
+Baseline `G20`:
 
 ```text
-novel target reachability 0/256
-exact novel-target choice 0/256
-COMMIT                  256/256
-```
-
-Therefore the Gate-2 baseline localizes a genuine closure limitation rather than a valuation or search failure:
-
-\[
-\boxed{
-\text{useful target exists}
-\land
-\Pi(e_{\rm target})\notin\mathcal C_0
-\land
-\text{old admitted construction cannot expose it}.
-}
-\]
-
-### 1.13 Gate 2: supplied target-blind basin opening
-
-The primary intervention changed only the admitted experiment-construction substrate:
-
-\[
-\boxed{S_0\rightarrow S_1.}
-\]
-
-`S1` adds one generic target-blind `AND` operator and adequate post-extension XOR closure.
-
-Construction burden changes:
-
-\[
-\boxed{B_{\rm construction}:8\rightarrow10.}
-\]
-
-No target-specific semantics, target formulas, context-to-target mappings, or winner hints are supplied.
-
-Observed:
-
-```text
-|C1| = 1023
-C1 checksum = c51cc447000204a4c32e205d4e8daab954a52b80939664bbab2968629299efb7
-C0 strict subset C1 = true
-novel target reachability 256/256
-exact novel-target choice 256/256
-```
-
-All four target partitions are in:
-
-\[
-\boxed{\mathcal C_1\setminus\mathcal C_0.}
-\]
-
-Therefore the preregistered causal signature holds:
-
-\[
-\boxed{
-B_{\rm construction}\uparrow
-\land
-\mathcal C_0\subsetneq\mathcal C_1
-\land
-\text{new correction-relevant partitions become reachable}.
-}
-\]
-
-The earned claim is local and causal:
-
-\[
-\boxed{
-\textbf{Changing the admitted experiment-composition substrate can open a strictly larger refinement space containing useful partitions that were unreachable under the complete prior closure.}
-}
-\]
-
-This is a **local basin-opening result relative to `S0`**.
-
-It does **not** establish autonomous discovery or authorization of the extension.
-
-### 1.14 Gate-2 controls
-
-`G22`, adding `NOT`, changes operator syntax but not experiment partition geometry:
-
-```text
-|C_NOT| = 15
-C_NOT = C0
 novel target reachability 0/256
 exact target choice       0/256
 COMMIT                   256/256
 ```
 
+Primary `S0 -> S1` intervention added target-blind `AND` plus post-extension XOR closure:
+
+\[
+\boxed{B_{\rm construction}:8\rightarrow10}
+\]
+
+and produced:
+
+```text
+|C1| = 1023
+C0 strict subset C1 = true
+novel target reachability 256/256
+exact novel-target choice 256/256
+```
+
 Thus:
 
 \[
-\boxed{\text{new operator syntax}\neq\text{experiment-space expansion}.}
+\boxed{
+do(S_{\rm construct}:S_0\rightarrow S_1)
+\Rightarrow
+\mathcal C_0\subsetneq\mathcal C_1.
+}
 \]
 
-`G23`, adding `AND` without post-extension XOR recombination, produces:
+Controls:
 
 ```text
-|C_G23| = 120
-n1 reachable yes
-n2 reachable yes
-n3 reachable yes
-n4 reachable no
-exact target reachability / choice = 192/256 = 3/4
+NOT extension:               |C|=15, 0/256
+AND without recombination:   |C|=120, 192/256 = 3/4
+direct targets:              256/256 but target-specific displacement
+opaque degree-2 macro:       hidden/aliased specification
 ```
 
-It does not exceed its preregistered coverage ceiling.
-
-Important nuance: `n4` does not force COMMIT under `G23`. The partial family contains 18 tied refinements with:
-
-```text
-best partial R_corr = 0.125
-best partial margin = 0.025
-```
-
-so the controller acquires a partial refinement while the exact `n4` partition remains unavailable.
-
-This still establishes:
+Earned:
 
 \[
-\boxed{\text{nonlinear operator availability}\neq\text{adequate expanded compositional closure}.}
+\boxed{\textbf{local causal basin opening relative to }S_0.}
 \]
 
-`G24` directly supplies the four nonlinear targets and is classified as target-specific specification displacement.
+This did not establish discovery or authorization of `S1`.
 
-`G25` behaves as follows:
+### 1.6 Closure-insufficiency diagnosis
 
-- transparent macro alias: visible syntax 1, expanded burden 10 -> alias for `S1`, no independent evidence;
-- direct opaque family macro: visible syntax 1, 1,023 hidden semantic bindings -> hidden specification.
+At `7e3871c`, the construction substrate remained fixed at `S0`; no extension, candidate operator, or alternative grammar was admitted.
+
+The diagnostic object was:
+
+\[
+\boxed{
+D_{\rm closure}
+\in
+\{\texttt{SUFFICIENT},\texttt{INSUFFICIENT}\}.
+}
+\]
+
+All 768 failed episodes were matched on:
+
+```text
+Bayes baseline accuracy    0.625
+exact-target R_corr        0.375
+exact-target q             0.275
+exact target outside C0    yes
+correction unresolved      yes
+actor terminal action      COMMIT
+```
+
+The only relevant difference was complete-closure normative capacity.
+
+For the closure-sufficient `H` family:
+
+```text
+max C0 R_corr = 0.250
+max C0 q      = +0.150
+q-max count   = 1
+```
+
+For the closure-insufficient `G` family:
+
+```text
+max C0 R_corr = 0.000
+max C0 q      = -0.100
+```
+
+Primary result across 64 anonymous encodings:
+
+```text
+SEARCH_MISS:
+  SUFFICIENT          256/256
+
+VALUATION_MISHANDLE:
+  SUFFICIENT          256/256
+
+CLOSURE_INSUFFICIENT:
+  INSUFFICIENT        256/256
+
+TOTAL:
+  correct             768/768
+```
+
+Restricted-information ceilings:
+
+\[
+\boxed{\operatorname{Ceiling}(D0_{\rm failure-only})=2/3}
+\]
+
+\[
+\boxed{\operatorname{Ceiling}(D1_{\rm actor-observed-capacity})=2/3}
+\]
+
+\[
+\boxed{\operatorname{Ceiling}(D2_{\rm exact-target-membership})=2/3}
+\]
+
+while the naïve rule:
+
+```text
+exact target outside C0 -> INSUFFICIENT
+```
+
+achieved only:
+
+\[
+\boxed{1/3.}
+\]
+
+A directly supplied `q_max` can be exact but is oracle displacement.
+
+Earned:
+
+\[
+\boxed{
+\text{current closure failed to produce correction}
+\neq
+\text{current closure cannot produce correction}.
+}
+\]
+
+and:
+
+\[
+\boxed{
+\Pi(y)\notin\mathcal C_0
+\not\Rightarrow
+D_{\rm closure}=\texttt{INSUFFICIENT}.
+}
+\]
+
+The valid result is **closure-insufficiency diagnosis relative to an exhaustively enumerable supplied construction substrate and frozen correction contract, without being supplied the missing extension**.
 
 ---
 
 ## 2. Current surviving roles / supplied substrate
 
-The experiment-planning branch should still be described at the role level, not by one implementation list.
-
-A provisional inventory is:
+A provisional role-level inventory is:
 
 \[
 \boxed{
@@ -521,26 +402,24 @@ Q_{\rm acquire}^{\rm role},
 R_{\rm contract},
 B_{\rm anchored},
 A_{\rm registry},
-S_{\rm construct}
+S_{\rm construct},
+D_{\rm closure}
 \}.
 }
 \]
 
-These are bookkeeping labels for surviving functional roles / supplied substrate, not newly asserted theoretical primitives.
+These are bookkeeping labels, not newly asserted theoretical primitives.
 
 Operationally:
 
 - `S_refine`: preserve correction-relevant contingent refinement paths;
 - `T_stop`: terminate when no continuation remains warranted;
-- `Q_acquire^role`: identify a currently maximal worthwhile accessible refinement;
+- `Q_acquire^role`: identify a maximal worthwhile accessible refinement;
 - `R_contract`: derive corrective consequence under the frozen correction contract;
 - `B_anchored`: quantitative acquisition burden anchored to COMMIT;
-- `A_registry`: generic target-blind access to the currently admitted registry;
-- `S_construct`: admitted primitive / operator / closure structure determining which experiment partitions can exist.
-
-Gate 1 showed one admitted registry can be generated compactly. Gate 2 showed changing `S_construct` can causally enlarge the reachable experiment space.
-
-What remains **supplied** at Gate 2 is the extension itself: the new operator / closure contract is designer-provided and target-blind.
+- `A_registry`: generic access to the currently admitted registry;
+- `S_construct`: primitive/operator/closure structure determining which experiment partitions can exist;
+- `D_closure`: diagnose whether the complete current closure still contains a warranted corrective continuation.
 
 Do not infer:
 
@@ -562,328 +441,140 @@ P_{\rm ep,min}=P_{\rm ep}^{\rm surviving}.
 | cardinal `q` vector | **removed** at `9a32f94` | maximal-choice comparison survives |
 | stored full ranking | **removed** at `9a32f94` | on-demand co-maximal choice survives |
 | explicit `R_corr` | **removed** at `b7c068b` | contract-grounded consequence survives |
-| contract-blind relevance | **insufficient**, ceiling `1/2` | correction contract remains constitutive |
-| no burden | **insufficient**, ceiling `1/4` | burden role survives |
-| burden order only | **insufficient**, ceiling `1/4` | burden magnitude matters |
-| relative burden only | **insufficient**, ceiling `4/5` | COMMIT anchor matters |
-| explicit 15-probe access menu | **removed** at `6355333`; `15→1`, 960/960 | generic registry access survives |
-| no access | **insufficient**, 0/960 | access path causally relevant |
-| partial access | **coverage-limited**, 448/960 = `7/15` | unavailable probes cannot be chosen |
-| target access lookup | 960/960 but **oracle displacement** | invalid minimality evidence |
-| explicit 15-partition registry | **removed as necessary representation** at `c661e58`; `15→8`, 960/960 | registry-generating substrate survives |
-| Gate-1 primitives only | **coverage-limited**, `4/15`, 256/960 | composition required for that family |
-| Gate-1 one XOR layer | **coverage-limited**, `10/15`, 640/960 | adequate closure required |
-| Gate-1 opaque family macro | behaviorally exact but expanded burden `15` | notation compression only |
-| old Gate-1 experiment closure `C0` | **causally insufficient** for nonlinear panel; 0/256 | closure boundary is real |
-| `NOT` extension | syntax changes, geometry unchanged; 0/256 | new syntax is not basin opening |
-| direct `AND` layer without recombination | **partial expansion**, 192/256 | new operator alone insufficient |
-| `S1`: AND + post-extension closure | **sufficient Gate-2 expansion**, 256/256 | target-blind supplied basin opening |
-| direct target registry | 256/256 but **target-specific displacement** | invalid construction evidence |
-| opaque degree-2 macro | behaviorally exact but hidden/aliased burden | invalid independent construction evidence |
-| discovery of `S1` | **untested** | next frontier |
-| authorization / binding of `S1` | **untested** | next frontier |
+| no / ordinal burden | **insufficient**, ceiling `1/4` | quantitative burden survives |
+| relative burden only | **insufficient**, ceiling `4/5` | COMMIT anchor survives |
+| explicit access menu | **removed** at `6355333`; `15→1` | generic registry access survives |
+| no access | **insufficient**, `0/960` | access path causally relevant |
+| partial access | **coverage-limited**, `7/15` | inaccessible probes cannot be chosen |
+| explicit 15-partition registry | **removed as necessary representation** at `c661e58`; `15→8` | registry-generating substrate survives |
+| primitives only | **coverage-limited**, `4/15` | composition needed for that family |
+| one XOR layer | **coverage-limited**, `10/15` | adequate closure needed |
+| old closure `C0` | **causally insufficient** for Gate-2 nonlinear panel | closure boundary is real |
+| `NOT` extension | syntax changed; geometry unchanged | new syntax is not basin opening |
+| direct `AND` layer | **partial expansion**, `3/4` | operator availability alone insufficient |
+| `S1` AND + post-closure | **sufficient supplied expansion**, `256/256` | local basin opening |
+| failure-only diagnosis | **insufficient**, ceiling `2/3` | failure is non-diagnostic |
+| actor-observed-capacity diagnosis | **insufficient**, ceiling `2/3` | exhaustive closure characterization matters |
+| exact-target-membership diagnosis | **insufficient**, ceiling `2/3` | target absence is not closure insufficiency |
+| supplied `q_max` | exact but **oracle displacement** | invalid primary diagnostic evidence |
+| exhaustive closure-capacity diagnosis | **sufficient**, `768/768` | closure diagnosis earned in certified domain |
+| extension discovery | **untested** | current frontier |
+| extension valuation | **untested** | later frontier |
+| authorization / binding | **untested** | later frontier |
 
 ---
 
-## 4. Role-level compression and expansion
+## 4. Structural ceilings versus competence failure
 
-The branch has now separated three operations that were previously easy to conflate:
+The branch now includes structural / representational ceilings at multiple layers:
+
+\[
+13/24,\quad 17/24,\quad 1/2,\quad 1/4,\quad 4/5,\quad 7/15,\quad 4/15,\quad 10/15,\quad 3/4,\quad 2/3.
+\]
+
+The newest diagnostic controls make the construction-space analogue explicit:
 
 \[
 \boxed{
-\text{registry compression}
+\text{closure impossibility}
 \neq
-\text{registry accessibility}
+\text{search failure}
 \neq
-\text{experiment-space expansion}.
+\text{valuation failure}.
 }
 \]
 
-Operationally, the audited branch now supports:
-
-\[
-\boxed{
-S_{\rm construct}
-\rightarrow
-\text{derived admitted registry}
-\rightarrow
-A_{\rm registry}
-\rightarrow
-R_{\rm contract}+B_{\rm anchored}
-\rightarrow
-Q_{\rm acquire}^{\rm role}
-}
-\]
-
-inside:
-
-\[
-\boxed{S_{\rm refine}+T_{\rm stop}.}
-\]
-
-Gate 2 adds one more causal statement:
-
-\[
-\boxed{
-do(S_{\rm construct}:S_0\rightarrow S_1)
-\Rightarrow
-\mathcal C_0\subsetneq\mathcal C_1.}
-\]
-
-Removed implementation / representation mass remains:
-
-\[
-\boxed{
-\begin{aligned}
-\Pi_{\rm DP}&\downarrow\\
-STOP_{\rm primitive}&\downarrow\\
-(V,C)_{\rm separate}&\downarrow\\
-R_{\rm corr}^{\rm explicit}&\downarrow\\
-q_{\rm cardinal}&\downarrow\\
-\text{full ranking}&\downarrow\\
-\text{explicit access menu}&\downarrow\\
-\text{explicit 15-entry registry}&\downarrow.
-\end{aligned}
-}
-\]
-
-What has **not** disappeared is the need for some construction substrate adequate to generate the currently required experiment geometry.
+This is not inferred from actor behavior; the successful diagnostic independently recomputes the complete current closure and its normative acquisition capacity.
 
 ---
 
-## 5. Specification accounting
+## 5. Provenance
 
-### Accessibility
-
-At `6355333`:
-
-\[
-\boxed{B_{\rm access}:15\rightarrow1}
-\]
-
-while experiment semantics were frozen.
-
-### Registry compression
-
-At `c661e58`:
-
-\[
-\boxed{B_{\mathcal E^\star}:15\rightarrow8}
-\]
-
-while the useful experiment family remained extensionally identical.
-
-### Basin opening
-
-At `ee1b9ac`, Gate 2 is deliberately **not** a compression:
-
-\[
-\boxed{B_{\rm construction}:8\rightarrow10.}
-\]
-
-The relevant success criterion is not lower burden but changed reachable geometry under a target-blind supplied extension:
-
-\[
-\boxed{
-B_{\rm construction}\uparrow
-\land
-\mathcal C_0\subsetneq\mathcal C_1
-\land
-\text{new useful partitions reachable}.
-}
-\]
-
-Gate-2 ledger:
-
-| Condition | Expanded construction burden | Family size | Exact target reachability / choice | Status |
-|---|---:|---:|---:|---|
-| G20 old `S0` | 8 | 15 | 0/256 | old closure insufficient |
-| G21 `S1` = AND + post-extension closure | **10** | **1023** | **256/256** | valid supplied target-blind basin opening |
-| G22 NOT | 10 | 15 | 0/256 | syntax only; no new geometry |
-| G23 direct AND layer | 10 | 120 | 192/256 | partial expansion; inadequate closure |
-| G24 direct nonlinear targets | 12 | 19 | 256/256 | target-specific displacement |
-| G25 transparent macro | 10 expanded | 1023 | 256/256 | alias for G21 |
-| G25 direct opaque macro | 1023 hidden bindings | 1023 | 256/256 | hidden specification |
-
-The anti-scaffold rule remains:
-
-\[
-\boxed{\textbf{Where did the complexity go?}}
-\]
-
-and:
-
-\[
-\boxed{\text{compact syntax}\not\Rightarrow\text{compressed specification}.}
-\]
-
----
-
-## 6. Structural ceilings versus learner failure
-
-The branch now contains structural insufficiency / coverage certificates at several layers:
-
-\[
-\operatorname{Ceiling}(Q^\bot)=13/24,
-\qquad
-\operatorname{Ceiling}(Q^\bot+\mathrm{Pareto})=17/24,
-\]
-
-\[
-\operatorname{Ceiling}(\text{contract-blind relevance})=1/2,
-\]
-
-\[
-\operatorname{Ceiling}(\text{no burden})
-=
-\operatorname{Ceiling}(\text{burden order})
-=1/4,
-\]
-
-\[
-\operatorname{Ceiling}(\text{relative burden without COMMIT anchor})=4/5,
-\]
-
-\[
-\operatorname{Ceiling}(A3)=7/15,
-\]
-
-\[
-\operatorname{Coverage}(R2)=4/15,
-\qquad
-\operatorname{Coverage}(R3)=10/15,
-\]
-
-and now:
-
-\[
-\boxed{\operatorname{Coverage}(G23)=3/4=192/256.}
-\]
-
-These are substrate-expression / reachability limits, not optimizer failures.
-
----
-
-## 7. Provenance and regression status
-
-### Fresh Gate-2 evidence at `ee1b9ac`
+### Fresh closure-diagnosis evidence at `7e3871c`
 
 ```text
 64 anonymous encodings
-4 nonlinear correction contexts
-256 context-encoding evaluations
+12 contexts per encoding
+768 diagnostic episodes
 
-G20 old S0:
-  |C0| 15
-  nonlinear target reachability 0/256
-  exact target choice 0/256
-  COMMIT 256/256
+SEARCH_MISS             256/256 SUFFICIENT
+VALUATION_MISHANDLE     256/256 SUFFICIENT
+CLOSURE_INSUFFICIENT    256/256 INSUFFICIENT
 
-G21 S1:
-  |C1| 1023
-  C0 strict subset C1
-  nonlinear target reachability 256/256
-  exact target choice 256/256
-
-G22 NOT:
-  family size 15
-  geometry unchanged
-  exact target choice 0/256
-
-G23 direct AND layer:
-  family size 120
-  exact target choice 192/256
-  ceiling 3/4 not exceeded
-
-G24 direct targets:
-  256/256 but target-specific displacement
-
-G25 macro controls:
-  transparent alias -> expanded burden 10
-  opaque direct family -> 1023 hidden bindings
+D0 failure-only ceiling               2/3
+D1 actor-observed-capacity ceiling    2/3
+D2 exact-target-membership ceiling    2/3
+naive target-outside rule             1/3
 ```
 
-Old-closure checksum:
+The child executable imports `ee1b9ac`, which recursively wires Gate-1 / accessibility / valuation / navigation assertions.
 
-```text
-809abd918f17a77c779f76ce1b14ba4661e63b6834c4bec475fbe8a8f8eeed49
-```
-
-Expanded-closure checksum:
-
-```text
-c51cc447000204a4c32e205d4e8daab954a52b80939664bbab2968629299efb7
-```
-
-### Inherited hard regressions
-
-The `ee1b9ac` executable imports the Gate-1 audit, which recursively wires accessibility / valuation / navigation assertions.
-
-The Gate-2 panel was freshly executed in the connector session. Older audits were not freshly process-reexecuted there.
+Older audits were not freshly process-replayed in this connector session.
 
 Correct provenance:
 
 \[
-\boxed{\textbf{fresh Gate-2 experiment-space-construction result with inherited hard regression assertions}.}
+\boxed{\textbf{fresh closure-insufficiency-diagnosis result with inherited hard regression assertions}.}
 \]
 
 ---
 
-## 8. Current empirical boundary
+## 6. Current empirical boundary
 
-Gate 1 earned:
-
-\[
-\boxed{B_{\mathcal E^\star}\downarrow\land\mathcal E^\star\text{ unchanged extensionally}.}
-\]
-
-Gate 2 now earns:
+The program has now empirically separated:
 
 \[
 \boxed{
-S_0\rightarrow S_1
-\Rightarrow
-\mathcal C_0\subsetneq\mathcal C_1
+\text{supplied basin opening}
+\neq
+\text{diagnosis that opening is needed}
+\neq
+\text{discovery of the opening}.
 }
 \]
 
-with useful partitions in `C1 \ C0` becoming reachable and choice-maximal under frozen downstream machinery.
+Gate 2 established that changing `S_construct` can open a useful new basin.
 
-The strongest permitted interpretation is:
-
-\[
-\boxed{\textbf{local causal basin opening relative to the audited Gate-1 substrate}.}
-\]
-
-This ledger does **not** claim:
-
-- autonomous discovery of `AND`;
-- diagnosis from failure evidence that `S0` is insufficient;
-- warranted selection among candidate construction-substrate extensions;
-- authorization to modify experiment machinery;
-- autonomous binding / inheritance of the extension;
-- unrestricted experiment invention;
-- general ontology construction;
-- self-modification;
-- that `AND` is uniquely necessary;
-- that the 1,023-partition family is minimal.
-
-The next scientific frontier, if pursued, is therefore not another supplied basin-opening demonstration. It is the adaptive transformation chain:
+`7e3871c` now establishes, in the finite certified regime, that the system can distinguish:
 
 \[
 \boxed{
-\text{failure evidence}
+\exists e\in\mathcal C_0:q(e)>0
+}
+\]
+
+from:
+
+\[
+\boxed{
+\forall e\in\mathcal C_0:q(e)\le0
+}
+\]
+
+even when both observed actors fail and commit, and even when the exact target lies outside `C0` in both cases.
+
+The next scientific frontier is therefore:
+
+\[
+\boxed{
+D_{\rm closure}
 \rightarrow
-\text{diagnosis of closure insufficiency}
-\rightarrow
-\text{candidate substrate transformation}
+\widehat S_{\rm candidate}
+}
+\]
+
+with **extension discovery** isolated from:
+
+\[
+\text{extension valuation}
 \rightarrow
 \text{authorization}
 \rightarrow
-\text{expanded refinement space}.
-}
+\text{binding}
+\rightarrow
+\text{held-out correction}.
 \]
 
-That chain remains untested.
+No extension-discovery result is claimed here.
 
 `P_ep,min` remains explicitly unresolved.
