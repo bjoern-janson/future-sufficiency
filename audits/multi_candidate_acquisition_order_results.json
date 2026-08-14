@@ -1,0 +1,149 @@
+{
+  "preregistration_commit": "c3816400ef6ffd61d02b3a5fceec2712de064357",
+  "execution_scope": "multi-candidate core panel executed in-session; upstream valuation/STOP regressions inherited from unchanged audited sources and reasserted by the executable child audit when run in-repo",
+  "encodings": 64,
+  "panel_states": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "encoded_states_checked": 512,
+  "canonical_panel_stats": {
+    "P1": {
+      "candidates": [
+        {"candidate": "H", "information_bits": 1.0, "post_evidence_bayes_accuracy": 1.0, "correction_relevance": 0.5, "kappa": 0.1, "reference_q": 0.4},
+        {"candidate": "M", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.1, "reference_q": 0.15},
+        {"candidate": "L", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.625, "correction_relevance": 0.125, "kappa": 0.1, "reference_q": 0.025}
+      ],
+      "expected_optimal_action_set": ["H"]
+    },
+    "P2": {
+      "candidates": [
+        {"candidate": "M_a", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.05, "reference_q": 0.2},
+        {"candidate": "M_b", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.1, "reference_q": 0.15},
+        {"candidate": "M_c", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.2, "reference_q": 0.05}
+      ],
+      "expected_optimal_action_set": ["M_a"]
+    },
+    "P3": {
+      "candidates": [
+        {"candidate": "H", "information_bits": 1.0, "post_evidence_bayes_accuracy": 1.0, "correction_relevance": 0.5, "kappa": 0.3, "reference_q": 0.2},
+        {"candidate": "M", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.1, "reference_q": 0.15},
+        {"candidate": "L", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.625, "correction_relevance": 0.125, "kappa": 0.02, "reference_q": 0.105}
+      ],
+      "expected_optimal_action_set": ["H"]
+    },
+    "P4": {
+      "candidates": [
+        {"candidate": "H", "information_bits": 1.0, "post_evidence_bayes_accuracy": 1.0, "correction_relevance": 0.5, "kappa": 0.45, "reference_q": 0.05},
+        {"candidate": "M", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.08, "reference_q": 0.17},
+        {"candidate": "L", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.625, "correction_relevance": 0.125, "kappa": 0.01, "reference_q": 0.115}
+      ],
+      "expected_optimal_action_set": ["M"]
+    },
+    "P5": {
+      "candidates": [
+        {"candidate": "H", "information_bits": 1.0, "post_evidence_bayes_accuracy": 1.0, "correction_relevance": 0.5, "kappa": 0.48, "reference_q": 0.02},
+        {"candidate": "M", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.2, "reference_q": 0.05},
+        {"candidate": "L", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.625, "correction_relevance": 0.125, "kappa": 0.01, "reference_q": 0.115}
+      ],
+      "expected_optimal_action_set": ["L"]
+    },
+    "P6": {
+      "candidates": [
+        {"candidate": "H", "information_bits": 1.0, "post_evidence_bayes_accuracy": 1.0, "correction_relevance": 0.5, "kappa": 0.3, "reference_q": 0.2},
+        {"candidate": "M", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.05, "reference_q": 0.2},
+        {"candidate": "L", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.625, "correction_relevance": 0.125, "kappa": 0.01, "reference_q": 0.115}
+      ],
+      "expected_optimal_action_set": ["H", "M"]
+    },
+    "P7": {
+      "candidates": [
+        {"candidate": "H", "information_bits": 1.0, "post_evidence_bayes_accuracy": 1.0, "correction_relevance": 0.5, "kappa": 0.5, "reference_q": 0.0},
+        {"candidate": "M", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.25, "reference_q": 0.0},
+        {"candidate": "L", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.625, "correction_relevance": 0.125, "kappa": 0.125, "reference_q": 0.0}
+      ],
+      "expected_optimal_action_set": ["COMMIT"]
+    },
+    "P8": {
+      "candidates": [
+        {"candidate": "H", "information_bits": 1.0, "post_evidence_bayes_accuracy": 1.0, "correction_relevance": 0.5, "kappa": 0.55, "reference_q": -0.05},
+        {"candidate": "M", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.75, "correction_relevance": 0.25, "kappa": 0.1, "reference_q": 0.15},
+        {"candidate": "L", "information_bits": 1.0, "post_evidence_bayes_accuracy": 0.625, "correction_relevance": 0.125, "kappa": 0.2, "reference_q": -0.075}
+      ],
+      "expected_optimal_action_set": ["M"]
+    }
+  },
+  "representation_action_set_agreement": {
+    "sign_only": {"exact_matches": 128, "total": 512, "accuracy": 0.25},
+    "sign_plus_pareto": {"exact_matches": 256, "total": 512, "accuracy": 0.5},
+    "derived_compensated_ordinal": {"exact_matches": 512, "total": 512, "accuracy": 1.0},
+    "max_only_tournament": {"exact_matches": 512, "total": 512, "accuracy": 1.0},
+    "cardinal_q_reference": {"exact_matches": 512, "total": 512, "accuracy": 1.0}
+  },
+  "restricted_representation_ceilings": {
+    "sign_only": {"correct": 26, "total": 48, "accuracy": 0.541666666667, "collision_classes": 5},
+    "sign_plus_pareto": {"correct": 34, "total": 48, "accuracy": 0.708333333333, "collision_classes": 14}
+  },
+  "candidate_identity_invariance": {
+    "anonymous_encoding_mismatches": {
+      "derived_compensated_ordinal": 0,
+      "max_only_tournament": 0,
+      "cardinal_q_reference": 0
+    },
+    "exhaustive_permutation_presentations": 48,
+    "exhaustive_permutation_mismatches": {
+      "derived_compensated_ordinal": 0,
+      "max_only_tournament": 0,
+      "cardinal_q_reference": 0
+    }
+  },
+  "negative_controls": {
+    "correction_relevance_lexicographic": ["P2", "P4", "P5", "P6"],
+    "burden_lexicographic": ["P1", "P3", "P4", "P6"]
+  },
+  "tournament_contract": {
+    "retains_co_maximal_ties": true,
+    "stores_total_ranking": false,
+    "candidate_pairwise_comparisons_per_state": 2,
+    "commit_comparison_after_tournament": true
+  },
+  "specification_ledger": {
+    "sign_only": {"supplied_target_decisions": 0, "supplied_rank_entries": 0, "persistent_cardinal_q_values": 0, "derived_pairwise_comparisons": 0, "stores_total_ranking": false},
+    "sign_plus_pareto": {"supplied_target_decisions": 0, "supplied_rank_entries": 0, "persistent_cardinal_q_values": 0, "derived_pairwise_comparisons": "Pareto only", "stores_total_ranking": false},
+    "derived_compensated_ordinal": {"supplied_target_decisions": 0, "supplied_rank_entries": 0, "persistent_cardinal_q_values": 0, "derived_pairwise_comparisons": "all required candidate pairs on demand", "stores_total_ranking": false, "materializes_compensated_relation": true},
+    "max_only_tournament": {"supplied_target_decisions": 0, "supplied_rank_entries": 0, "persistent_cardinal_q_values": 0, "derived_pairwise_comparisons": "2 candidate comparisons per 3-way state", "stores_total_ranking": false, "persistent_state": "current co-maximal class only"},
+    "cardinal_q_reference": {"supplied_target_decisions": 0, "supplied_rank_entries": 0, "persistent_cardinal_q_values": 3, "derived_pairwise_comparisons": 0, "stores_total_ranking": false},
+    "order_or_winner_table": {"supplied_target_decisions": "direct or equivalent", "supplied_rank_entries": "direct", "persistent_cardinal_q_values": 0, "derived_pairwise_comparisons": 0, "oracle_displacement": true}
+  },
+  "upstream_regression_contract": {
+    "valuation_anchor_commit": "c97a5cfde0dba0052f63ab5636f574cd4c4d1f2e",
+    "valuation_audit_blob_sha": "0afe6d1275975a5cbc6e85c07f0419c7b2c8d70e",
+    "valuation_result_blob_sha": "bf2fc42ff6649dc6d3386831b7d556951efb0d47",
+    "valuation_encodings": 64,
+    "valuation_decisions_checked": 320,
+    "baseline_vs_kappa_mismatches": 0,
+    "stop_source_commit": "46943821f9dec0ed188410c5c22fcad0f21b5786",
+    "stop_audit_blob_sha": "cdb70de4d9bdc6c84f4d718c147612adfd49225b",
+    "stop_encodings": 64,
+    "visited_decision_points": 3584,
+    "derived_termination_decisions": 1536,
+    "trace_mismatches": 0,
+    "fresh_process_execution_this_session": false
+  },
+  "earned_result": {
+    "candidate_vs_commit_insufficient_for_multi_candidate_selection": true,
+    "pareto_partial_order_insufficient_for_crossing_tradeoffs": true,
+    "compensated_ordinal_matches_cardinal_reference": true,
+    "max_only_tournament_matches_cardinal_reference": true,
+    "explicit_cardinal_q_vector_necessary": false,
+    "stored_full_ranking_necessary": false,
+    "compensated_pairwise_comparison_survives": true,
+    "Q_acquire_min_established": false
+  }
+}
