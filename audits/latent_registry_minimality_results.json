@@ -1,0 +1,122 @@
+{
+  "R5_context_target_generator": {
+    "classification": "oracle displacement",
+    "context_independent_registry_recovered": false,
+    "downstream_matches": 960,
+    "downstream_total": 960,
+    "target_hint_clauses": 15,
+    "valid_minimality_evidence": false
+  },
+  "anti_scaffold": {
+    "R4_behavioral_exact": true,
+    "R4_expanded_total": 15,
+    "R4_valid_contraction": false,
+    "R4_visible_total": 1,
+    "R5_oracle_displacement": true
+  },
+  "contexts_per_encoding": 15,
+  "coverage_controls": {
+    "R2_choices": 256,
+    "R2_expected": 0.26666666666666666,
+    "R2_observed": 0.26666666666666666,
+    "R3_choices": 640,
+    "R3_expected": 0.6666666666666666,
+    "R3_observed": 0.6666666666666666,
+    "coverage_ceiling_exceeded": false
+  },
+  "downstream_evaluations": 960,
+  "encodings": 64,
+  "gate": "G1_registry_compression_only",
+  "preregistration_commit": "8936606715ab39eaeec27426624f5d46ead7c2a2",
+  "primary_contraction": {
+    "B_E_star_decreases": true,
+    "R0_expanded_B_E_star": 15,
+    "R1_exact_partition_recovery": true,
+    "R1_expanded_B_E_star": 8,
+    "R1_same_downstream_choices": true,
+    "experiment_family_expanded": false,
+    "gate_2_triggered": false
+  },
+  "provenance": {
+    "description": "fresh latent-registry-minimality result with inherited hard regression assertions",
+    "fresh_panel_execution": true,
+    "older_audits_freshly_process_executed_in_connector_session": false
+  },
+  "registry_results": {
+    "R0_explicit": {
+      "downstream_matches": 960,
+      "downstream_total": 960,
+      "encodings": 64,
+      "exact_extensional_encodings": 64,
+      "extra_partitions": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "recovered": 15
+    },
+    "R1_basis_xor_closure": {
+      "downstream_matches": 960,
+      "downstream_total": 960,
+      "encodings": 64,
+      "exact_extensional_encodings": 64,
+      "extra_partitions": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "recovered": 15
+    },
+    "R2_primitives_only": {
+      "downstream_matches": 256,
+      "downstream_total": 960,
+      "encodings": 64,
+      "exact_extensional_encodings": 0,
+      "extra_partitions": 0,
+      "precision": 1.0,
+      "recall": 0.26666666666666666,
+      "recovered": 4
+    },
+    "R3_one_xor_layer": {
+      "downstream_matches": 640,
+      "downstream_total": 960,
+      "encodings": 64,
+      "exact_extensional_encodings": 0,
+      "extra_partitions": 0,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "recovered": 10
+    },
+    "R4_opaque_macro": {
+      "downstream_matches": 960,
+      "downstream_total": 960,
+      "encodings": 64,
+      "exact_extensional_encodings": 64,
+      "extra_partitions": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "recovered": 15
+    }
+  },
+  "registry_specification_ledger": {
+    "R0_explicit": {"expanded_total": 15, "visible": [0,0,0,15,0,0], "visible_total": 15},
+    "R1_basis_xor_closure": {"expanded_total": 8, "visible": [4,1,1,0,2,0], "visible_total": 8},
+    "R2_primitives_only": {"expanded_total": 4, "visible": [4,0,0,0,0,0], "visible_total": 4},
+    "R3_one_xor_layer": {"expanded_total": 7, "visible": [4,1,1,0,1,0], "visible_total": 7},
+    "R4_opaque_macro": {"classification": "hidden specification / notation compression", "expanded_total": 15, "valid": false, "visible": [0,0,1,0,0,0], "visible_total": 1},
+    "R5_context_target_generator": {"classification": "oracle displacement", "expanded_total": 16, "valid": false, "visible": [0,0,0,0,1,15], "visible_total": 16}
+  },
+  "target_family": {
+    "accessibility_semantics_checksum_sha256": "54b7375f6ff283a3dff9f06bdaf67cced806411c9277021b0f9579c50cf45e59",
+    "canonical_partition_checksum_sha256": "809abd918f17a77c779f76ce1b14ba4661e63b6834c4bec475fbe8a8f8eeed49",
+    "fixed_extensionally": true,
+    "partition_count": 15,
+    "world_count": 16
+  },
+  "upstream_regression_contract": {
+    "A0_reachability_choice": [960,960],
+    "A1_B_access": 1,
+    "A1_reachability_choice": [960,960],
+    "A2_reachability_choice": [0,0],
+    "A3_reachability_choice": [448,448],
+    "A4_valid_minimality_evidence": false,
+    "accessibility_commit": "635533302ba197133ff78b2e2bc5b66dd9791cc8",
+    "older_valuation_navigation_assertions_inherited": true
+  }
+}
