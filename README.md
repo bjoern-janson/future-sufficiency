@@ -71,3 +71,15 @@ from:
 ## Status
 
 Research scaffold. No empirical claim is considered established until supported by a preregistered or otherwise reproducible experiment.
+
+## Citation
+
+If you use this repository in your work, please cite:
+
+> Janson, Björn. *Future Sufficiency*. GitHub repository, 2026.
+
+Machine-readable citation metadata is provided in [`CITATION.cff`](CITATION.cff), which enables GitHub's **Cite this repository** feature.
+
+## License
+
+This repository is licensed under the MIT License. See [`LICENSE`](LICENSE).
