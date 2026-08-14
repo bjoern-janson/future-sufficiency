@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this repository in your work, please cite it using the metadata in this file."
+title: "Future Sufficiency"
+type: software
+authors:
+  - family-names: "Janson"
+    given-names: "Björn"
+year: 2026
+repository-code: "https://github.com/bjoern-janson/future-sufficiency"
+url: "https://github.com/bjoern-janson/future-sufficiency"
+license: MIT
+abstract: >-
+  Empirical tests of representation closure, future sufficiency, and adaptive repair,
+  including preregistered audits of representational closure, admissibility,
+  contraction, and decision-substrate characterization.
+keywords:
+  - future sufficiency
+  - representation closure
+  - adaptive repair
+  - decision substrate
+  - corrigibility
+preferred-citation:
+  type: software
+  title: "Future Sufficiency"
+  authors:
+    - family-names: "Janson"
+      given-names: "Björn"
+  year: 2026
+  url: "https://github.com/bjoern-janson/future-sufficiency"
