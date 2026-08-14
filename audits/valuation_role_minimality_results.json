@@ -1,0 +1,122 @@
+{
+  "preregistration_commit": "faba1f247359ef89d514f73a25f84ada1222a1ff",
+  "execution_scope": "new valuation-role-minimality panels executed in-session; prior multi-candidate / valuation / STOP-navigation certificates inherited under unchanged source and reasserted by the committed executable when run in-repo",
+  "encodings": 64,
+  "cut_R": {
+    "no_explicit_R_corr_main_panel": {
+      "exact_matches": 512,
+      "total": 512,
+      "accuracy": 1.0
+    },
+    "contract_aware_mirror": {
+      "exact_matches": 128,
+      "total": 128,
+      "accuracy": 1.0
+    },
+    "contract_blind_ceiling": {
+      "correct": 6,
+      "total": 12,
+      "accuracy": 0.5,
+      "collision_classes": 6
+    },
+    "controller_interface_contraction": true,
+    "external_specification_reduction": false,
+    "interpretation": "explicit controller-side R_corr is unnecessary; correction relevance remains grounded in the frozen evidence partitions and correction contract"
+  },
+  "cut_K": {
+    "canonical_targets": {
+      "K1": "H",
+      "K2": "M",
+      "K3": "L",
+      "K4": "COMMIT",
+      "K5": "COMMIT"
+    },
+    "full_kappa_reference": {
+      "exact_matches": 320,
+      "total": 320,
+      "accuracy": 1.0
+    },
+    "relevance_only_natural_control": {
+      "exact_matches": 64,
+      "total": 320,
+      "accuracy": 0.2,
+      "wrong_states": {
+        "K2": 64,
+        "K3": 64,
+        "K4": 64,
+        "K5": 64
+      }
+    },
+    "restricted_representation_ceilings": {
+      "no_burden_K1_K4": {
+        "correct": 6,
+        "total": 24,
+        "accuracy": 0.25,
+        "collision_classes": 6
+      },
+      "burden_order_only_K1_K4": {
+        "correct": 6,
+        "total": 24,
+        "accuracy": 0.25,
+        "collision_classes": 6
+      },
+      "pairwise_burden_differences_K1_K5": {
+        "correct": 24,
+        "total": 30,
+        "accuracy": 0.8,
+        "collision_classes": 24
+      }
+    },
+    "external_specification_reduction_attempted": true,
+    "external_specification_reduction_preserved_behavior": false,
+    "interpretation": "quantitative acquisition-burden information anchored to COMMIT remains necessary in the tested language family and frozen substrate; the literal kappa symbol is not established as uniquely necessary"
+  },
+  "specification_ledger": {
+    "current_reference": {
+      "explicit_R_corr_controller_fields_per_candidate": 1,
+      "explicit_kappa_fields_per_candidate": 1,
+      "R_corr_external_designer_fields": 0,
+      "kappa_external_numeric_fields_per_candidate": 1
+    },
+    "contract_grounded_consequence_comparator": {
+      "explicit_R_corr_controller_fields_per_candidate": 0,
+      "explicit_kappa_fields_per_candidate": 1,
+      "added_external_valuation_fields": 0,
+      "B_controller_decreases": true,
+      "B_external_decreases": false
+    },
+    "no_burden": {
+      "explicit_kappa_fields_per_candidate": 0,
+      "B_external_decreases": true,
+      "sufficient": false
+    },
+    "burden_order_only": {
+      "quantitative_kappa_fields": 0,
+      "absolute_burden_anchor": false,
+      "sufficient": false
+    },
+    "pairwise_burden_differences_only": {
+      "absolute_kappa_fields": 0,
+      "absolute_burden_anchor": false,
+      "sufficient": false
+    },
+    "winner_or_rank_table": {
+      "oracle_displacement": true,
+      "valid_minimality_evidence": false
+    }
+  },
+  "upstream_regression_contract": {
+    "multi_candidate_commit": "9a32f94afa40f99a8fa0fcd941b59f2ca1234683",
+    "multi_candidate_encoded_states": 512,
+    "max_only_exact_matches": 512,
+    "sign_only_ceiling": 0.5416666666666666,
+    "pareto_ceiling": 0.7083333333333334,
+    "valuation_commit": "c97a5cfde0dba0052f63ab5636f574cd4c4d1f2e",
+    "valuation_decisions_checked": 320,
+    "valuation_mismatches": 0,
+    "stop_commit": "46943821f9dec0ed188410c5c22fcad0f21b5786",
+    "visited_decision_points": 3584,
+    "derived_termination_decisions": 1536,
+    "trace_mismatches": 0
+  }
+}
