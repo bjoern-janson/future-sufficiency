@@ -1,0 +1,63 @@
+{
+  "NO_WARRANTED_ADOPTION_defined": false,
+  "Pareto_filtering_performed": false,
+  "Q_extension_defined": false,
+  "actual_candidate_pair_evaluations": 0,
+  "actual_candidate_pair_relations_computed": false,
+  "all_five_relation_tokens_demonstrated": true,
+  "authorization_performed": false,
+  "binding_performed": false,
+  "candidate_preference_defined": false,
+  "claim_boundary": {
+    "Q_extension_licensed": false,
+    "actual_candidate_comparison_application_licensed_next": true,
+    "adoption_licensed": false,
+    "candidate_preference_licensed": false
+  },
+  "comparison_architecture_identified_in_finite_regime": true,
+  "coordinate_counts": {
+    "B": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320},
+    "DeltaC": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320},
+    "DeltaV": {"A":64,"B":64,"C":0,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":256,"provenance_blind":256,"reflexive":64,"swap":256},
+    "Scope": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320},
+    "collateral": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320},
+    "reopen": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320}
+  },
+  "coordinate_pass": {
+    "B": {"A":true,"B":true,"C":true,"D":true,"E":true,"F":true,"broken":true,"no_cross_leak":true,"provenance_blind":true,"reflexive":true,"swap":true},
+    "DeltaC": {"A":true,"B":true,"C":true,"D":true,"E":true,"F":true,"broken":true,"no_cross_leak":true,"provenance_blind":true,"reflexive":true,"swap":true},
+    "DeltaV": {"A":true,"B":true,"D":true,"E":true,"F":true,"broken":true,"no_cross_leak":true,"provenance_blind":true,"reflexive":true,"swap":true},
+    "Scope": {"A":true,"B":true,"C":true,"D":true,"E":true,"F":true,"broken":true,"no_cross_leak":true,"provenance_blind":true,"reflexive":true,"swap":true},
+    "collateral": {"A":true,"B":true,"C":true,"D":true,"E":true,"F":true,"broken":true,"no_cross_leak":true,"provenance_blind":true,"reflexive":true,"swap":true},
+    "reopen": {"A":true,"B":true,"C":true,"D":true,"E":true,"F":true,"broken":true,"no_cross_leak":true,"provenance_blind":true,"reflexive":true,"swap":true}
+  },
+  "coordinate_totals": {
+    "B": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320},
+    "DeltaC": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320},
+    "DeltaV": {"A":64,"B":64,"C":0,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":256,"provenance_blind":256,"reflexive":64,"swap":256},
+    "Scope": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320},
+    "collateral": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320},
+    "reopen": {"A":64,"B":64,"C":64,"D":64,"E":64,"F":64,"broken":64,"no_cross_leak":320,"provenance_blind":320,"reflexive":64,"swap":320}
+  },
+  "cross_coordinate_aggregation_defined": false,
+  "encodings_per_calibration_fixture": 64,
+  "gate": "extension_comparison_license_native_relation_identification_only",
+  "preregistration_commit": "844573923269a767027e6052068b57961a54381b",
+  "token_demonstration_counts": {"EQUIVALENT":448,"INCOMPARABLE":320,"I_GREATER":504,"J_GREATER":200,"NO_LICENSED_COMPARISON":768},
+  "upstream_regression": {
+    "Q_extension_defined_upstream": false,
+    "candidate_comparison_performed_upstream": false,
+    "candidate_count": 12,
+    "candidate_results_blob": "dce4b66df142cfcb2a6515a082585f36ab374071",
+    "measurement_architecture_identified": true,
+    "measurement_results_blob": "b23578f44742df8e484f2b60ebc708e472f4906d",
+    "mode": "connector_blob_metadata_and_summary_verified_fallback",
+    "not_identified_cells": 12
+  },
+  "wrong_controls": {
+    "W1_NOT_IDENTIFIED_to_zero": {"false_relation_count":320,"falsified":true,"total":384,"typed_missingness_violation_count":384},
+    "W2_scalarize_native_objects": {"disagreement_count":320,"falsified":true,"total":320},
+    "W3_scope_blind": {"false_relation_count":384,"falsified":true,"total":384},
+    "W4_one_coordinate_to_preference": {"falsified":true,"preference_output_type_exists":false}
+  }
+}
