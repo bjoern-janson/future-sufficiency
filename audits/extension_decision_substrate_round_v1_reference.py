@@ -33,31 +33,37 @@ def world():
  out=[]
  def add(cid,n,r,K): out.append({"relation_id":cid,"anonymous_candidate_count":n,"candidate_handles":list(range(n)),"structural_descriptor_K":K|{"N":n,"C_Sigma":counts(r)},"target_token_counts":counts(r),"records":records(r),"evidence_role":"CALIBRATION_EVIDENCE_WHEN_EXECUTED"})
  for n in (6,7):
+  # direction topology
   cr=cyc(n); order={6:[0,1,2,5,4,3],7:[0,1,2,6,5,4,3]}[n]; tr=total(order)
   common={"T_abst":"NONE","T_eq":"TRIVIAL","T_comp":"PAIRWISE_GLOBAL","T_conn":"CONNECTED","T_dim":"NA","matched_block_id":f"DIR_TOPOLOGY_N{n}","manipulated_axes":["T_dir"],"held_fixed_axes":["T_abst","T_eq","T_comp","T_conn","T_dim","N","C_Sigma"]}
   add(f"DIR_TOPOLOGY_N{n}_A_TOTAL",n,tr,common|{"T_dir":"TOTAL_ORDER","case_role":"A"})
   add(f"DIR_TOPOLOGY_N{n}_B_CYCLE",n,cr,common|{"T_dir":"CYCLIC_TOURNAMENT","case_role":"B"})
+  # abstention topology
   a=total(list(range(n))); b=dict(a)
   for i in range(n-1): a[i,i+1]=NWP
   for p in sorted(pairs(n),key=lambda p:(-abs(p[1]-p[0]),p[0],p[1]))[:n-1]: b[p]=NWP
   common={"T_dir":"ORDER_CONSISTENT_ACYCLIC","T_eq":"TRIVIAL","T_comp":"SINGLE_AXIS","T_conn":"CONNECTED","T_dim":"ONE_DIMENSIONAL","matched_block_id":f"ABST_TOPOLOGY_N{n}","manipulated_axes":["T_abst"],"held_fixed_axes":["T_dir","T_eq","T_comp","T_conn","T_dim","N","C_Sigma"]}
   add(f"ABST_TOPOLOGY_N{n}_A_MONOTONE",n,a,common|{"T_abst":"MONOTONE_LOCAL","case_role":"A"})
   add(f"ABST_TOPOLOGY_N{n}_B_CROSSCUT",n,b,common|{"T_abst":"CROSS_CUT","case_role":"B"})
+  # equivalence lawfulness
   a=blank(n); b=blank(n); a[0,1]=a[2,3]=EQ; b[0,1]=b[1,2]=EQ
   common={"T_dir":"NONE","T_abst":"DEFAULT_COMPLEMENT","T_comp":"NONE","T_conn":"DISCONNECTED","T_dim":"NA","matched_block_id":f"EQ_LAWFULNESS_N{n}","manipulated_axes":["T_eq"],"held_fixed_axes":["T_dir","T_abst","T_comp","T_conn","T_dim","N","C_Sigma"]}
   add(f"EQ_LAWFULNESS_N{n}_A_PARTITION",n,a,common|{"T_eq":"LAWFUL_PARTITION","case_role":"A"})
   add(f"EQ_LAWFULNESS_N{n}_B_NONTRANSITIVE",n,b,common|{"T_eq":"NONTRANSITIVE_TOKEN","case_role":"B"})
+  # connectivity
   ga={6:[[0,1,2,5,3,4]],7:[[0,1,2,6,3,4,5]]}[n]; gb={6:[[0,1,2],[3,4,5]],7:[[0,1,2],[3,4,5,6]]}[n]
   a=cycle(ga,n); b=cycle(gb,n)
   common={"T_dir":"CYCLIC_SPARSE","T_abst":"DEFAULT_COMPLEMENT","T_eq":"TRIVIAL","T_comp":"RELATIONAL","T_dim":"NA","matched_block_id":f"CONNECTIVITY_N{n}","manipulated_axes":["T_conn"],"held_fixed_axes":["T_dir","T_abst","T_eq","T_comp","T_dim","N","C_Sigma"]}
   add(f"CONNECTIVITY_N{n}_A_CONNECTED",n,a,common|{"T_conn":"CONNECTED","case_role":"A"})
   add(f"CONNECTIVITY_N{n}_B_DISCONNECTED",n,b,common|{"T_conn":"DISCONNECTED","case_role":"B"})
+  # transitivity
   a=blank(n); b=blank(n)
   for i,j in combinations(range(4),2): a[i,j]=PI
   for i,j in [(0,1),(1,2),(2,3),(3,4),(0,4),(1,4)]: b[i,j]=PI
   common={"T_abst":"DEFAULT_COMPLEMENT","T_eq":"TRIVIAL","T_comp":"RELATIONAL","T_conn":"DISCONNECTED","T_dim":"NA","matched_block_id":f"TRANSITIVITY_N{n}","manipulated_axes":["T_dir"],"held_fixed_axes":["T_abst","T_eq","T_comp","T_conn","T_dim","N","C_Sigma"]}
   add(f"TRANSITIVITY_N{n}_A_PARTIAL_ORDER",n,a,common|{"T_dir":"PARTIAL_ORDER","case_role":"A"})
   add(f"TRANSITIVITY_N{n}_B_NONTRANSITIVE",n,b,common|{"T_dir":"ACYCLIC_NONTRANSITIVE","case_role":"B"})
+  # cardinality stress
   a=blank(n); b=blank(n)
   for i,j in pairs(n):
    if j-i>=3:a[i,j]=PI
@@ -65,6 +71,7 @@ def world():
   common={"T_dir":"ORDER_CONSISTENT_ACYCLIC","T_abst":"MONOTONE_LOCAL","T_eq":"TRIVIAL","T_comp":"SINGLE_AXIS","T_conn":"CONNECTED","T_dim":"ONE_DIMENSIONAL","matched_block_id":f"CARDINALITY_STRESS_N{n}","manipulated_axes":["C_Sigma"],"held_fixed_axes":["T_dir","T_abst","T_eq","T_comp","T_conn","T_dim","N"]}
   add(f"CARDINALITY_STRESS_N{n}_A_SPARSE",n,a,common|{"case_role":"A"})
   add(f"CARDINALITY_STRESS_N{n}_B_DENSE",n,b,common|{"case_role":"B"})
+ # product geometry
  c=[(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)]; a=blank(6)
  for i,j in pairs(6):
   x,y=c[i],c[j]
@@ -77,6 +84,7 @@ def world():
  add("PRODUCT_GEOMETRY_N6_B_SINGLE_AXIS",6,b,common|{"T_dir":"ORDER_CONSISTENT_ACYCLIC","T_abst":"DISCONNECTED_LOCAL","T_comp":"SINGLE_AXIS","T_dim":"ONE_DIMENSIONAL","case_role":"B"})
  assert len(out)==26
  return out
+# canonical partition utilities
 def blocks_from_eq(r,n):
  par=list(range(n))
  def f(x):
@@ -184,4 +192,5 @@ def pi(language,r,n):
 def nuisance(case,n,e):
  return {"candidate_permutation":sorted(range(n),key=lambda i:H(f"{case}|perm|{e}|{i}")),"pair_record_order":sorted(pairs(n),key=lambda p:H(f"{case}|pair-order|{e}|{p[0]}|{p[1]}")),"aliases":{i:"A_"+H(f"{case}|alias|{e}|{i}")[:12] for i in range(n)},"nonce":H(f"{case}|nonce|{e}"),"implementation_tag":"TAG_"+H(f"{case}|impl|{e}")[:12]}
 if __name__=="__main__":
+ # construction-only emission: generated world, never treatment application
  print(canon({"round_id":"DSLI_R1","round_version":1,"cases":world(),"characterization_results_present":False}))
