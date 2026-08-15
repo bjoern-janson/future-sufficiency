@@ -32,6 +32,14 @@ The project distinguishes:
 
 These must not be collapsed into a single metric.
 
+## Methodological operating principles
+
+- [`CORRIGIBLE_ADAPTIVE_LOOP.md`](CORRIGIBLE_ADAPTIVE_LOOP.md) — future sufficiency as warranted updating + reopenability + termination discipline.
+- [`GENERALITY_PRINCIPLE.md`](GENERALITY_PRINCIPLE.md) — generality is an empirical intersection, not an assumption.
+- [`GENERATIVE_FAILURE_PRINCIPLE.md`](GENERATIVE_FAILURE_PRINCIPLE.md) — preserved reality-contact can constrain and redirect future search without granting mechanism or repair authority; **the wall is part of the map**.
+
+These documents freeze methodological contracts and claim boundaries. They are not promoted to universal empirical laws by inclusion here.
+
 ## Planned test
 
 Construct environments in which:
