@@ -2,11 +2,11 @@
   "suite_id": "CUHKX_FS_EMPIRICAL_SUITE_V1",
   "initialized_on": "2026-08-15",
   "role": "EMPIRICAL_CASE_STUDY_SUBSTRATE",
-  "creates_new_empirical_evidence": false,
+  "creates_new_empirical_evidence": true,
   "modifies_fs_core_theory": false,
   "modifies_competition_object": false,
   "scientific_object": "X_modality -> O_interface -> Z_accessible -> D_decision -> subject-held-out transfer",
-  "authority_ceiling": "present representational sufficiency, interface comparison, repair/exploitation under frozen operators, adoption under frozen gates, and subject-held-out transfer; not full Future Sufficiency or future corrective viability",
+  "authority_ceiling": "local subject-held-out evidence about representational sufficiency and joint exploitation under frozen operators; not DINOv2 optimality, causal modality importance, full Future Sufficiency, future preservation authority, or future corrective viability",
   "dataset": {
     "official_qa_zip_sha256": "6a9dc7dd59c1bec120f4d408b911695e1592b81c10845dce3c1306a3cb876433",
     "training_qa_rows": 4087,
@@ -41,9 +41,14 @@
     "pose_cache_sha256": "d7e609a5e8a9ebc4bbdda92f8fe601d8b0c6ccfd4a2757f9a632a1ac9211b89a",
     "imu_cache_sha256": "8c4656e2c76029783c18d0b76f92f58fa8165a786a7049c3be7bf90a28aa0234",
     "historical_v1_depth_cache_sha256": "cfe9a32fe1a19b6c242a81490c99b2a10c7b082402521d710e50a8456131935a",
-    "v5_ir_cache_sha256": "265f27036b75afb3ae14eea9e3c1f03d091052f495deaf6c1ae903222eafea0e"
+    "v5_ir_cache_sha256": "265f27036b75afb3ae14eea9e3c1f03d091052f495deaf6c1ae903222eafea0e",
+    "v7_execution_script_sha256": "473d83342c680836badc0aa5232f32df5aecb7ae7d5755ec7986798eac13b544",
+    "v7_result_zip_sha256": "af7687fad3c7a4d140707c09dd84edea79288abdd81f91e9755d21cb63aad088",
+    "dinov2_source_archive_sha256": "04276715cddb29d45d05bff3a6fc132224dc27749b279ac98ad2ce4620e20d48",
+    "dinov2_checkpoint_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+    "v7_feature_cache_sha256": "e9699696af7d886896df7fa1e52d2b28ecfbb8abeef71a6b3b2ee04a68abb5db"
   },
-  "formal_incumbent": {
+  "formal_cheap_incumbent": {
     "probe": "B5_pose_plus_IMU",
     "matched_episodes": 786,
     "candidate_pairs": 3144,
@@ -52,26 +57,23 @@
     "exact_set_accuracy": 0.3053435114503817,
     "adjudication": "MATERIAL_MODAL_COMPLEMENTARITY"
   },
-  "latest_visual_characterization": {
+  "cheap_visual_state": {
     "V5_IR": {
-      "balanced_accuracy": 0.6690153668069166,
-      "macro_f1": 0.6676785806852936,
-      "exact_set_accuracy": 0.24427480916030533,
-      "prediction_disagreement_vs_B5": 0.3543,
-      "IR_only_correct": 487,
-      "candidate_pairs": 3144,
+      "all809_balanced_accuracy": 0.6655735735643534,
+      "all809_macro_f1": 0.6643425341676923,
+      "all809_exact_set_accuracy": 0.22373300370828184,
+      "matched_balanced_accuracy": 0.6690153668069166,
+      "matched_macro_f1": 0.6676785806852936,
+      "matched_exact_set_accuracy": 0.24427480916030533,
       "adjudication": "PARTIAL_IR_ACTION_PRESENCE_AND_COMPLEMENTARITY_SUPPORTED"
     },
     "V6_B5_plus_IR": {
       "balanced_accuracy_approx": 0.73035,
-      "macro_f1_approx": 0.72854,
       "exact_set_accuracy_approx": 0.31807,
       "delta_balanced_accuracy": 0.017286,
       "delta_exact_set_accuracy": 0.012723,
       "folds_nonnegative_balanced_accuracy": 4,
       "folds_nonnegative_exact_set": 3,
-      "required_delta_balanced_accuracy": 0.02,
-      "required_delta_exact_set_accuracy": 0.03,
       "adjudication": "NO_MATERIAL_IR_SENSOR_GAIN_POSITIVE_BUT_SUBMATERIAL"
     }
   },
@@ -79,91 +81,98 @@
     "cheap_interface_search": "COMPLETE",
     "fixed_depth_branch": "CLOSED",
     "cheap_radar_fusion_branch": "CLOSED",
-    "cheap_ir_fusion_branch": "CLOSED"
+    "cheap_ir_fusion_branch": "CLOSED",
+    "v7_strong_ir_probe": "COMPLETE_AND_ADJUDICATED"
   },
-  "strong_ir_preregistration": {
+  "v7_design": {
     "probe_id": "CUHKX_V7_STRONG_IR_DINOV2_B14",
-    "design_selection_state": "FROZEN",
     "representation_family": "DINOV2_VITB14_LVD142M_FRAME_T32",
-    "physical_modality": "IR",
-    "backbone": {
-      "project": "facebookresearch/dinov2",
-      "source_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
-      "hub_symbol": "dinov2_vitb14",
-      "weights": "LVD142M",
-      "register_tokens": 0,
-      "parameters": 86000000,
-      "embedding_dimension": 768,
-      "patch_size": 14,
-      "license_at_freeze": "Apache-2.0",
-      "checkpoint_sha256": "TO_BE_BOUND_BEFORE_FIRST_FEATURE_EXTRACTION"
-    },
-    "sampling": {
-      "frames": 32,
-      "index_rule": "floor(j*(N-1)/31 + 0.5), j=0..31",
-      "random_sampling": false
-    },
-    "preprocessing": {
-      "grayscale": "mean(R,G,B)/255 then replicate to 3 channels",
-      "width": 224,
-      "height": 168,
-      "interpolation": "bicubic",
-      "implementation_concretization": "Pillow Image.Resampling.BICUBIC on float32 grayscale plane; exact Pillow version recorded on successful execution",
-      "crop": "none",
-      "mean": [0.485, 0.456, 0.406],
-      "std": [0.229, 0.224, 0.225]
-    },
+    "source_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "hub_symbol": "dinov2_vitb14",
+    "weights": "LVD142M",
+    "register_tokens": 0,
+    "embedding_dimension": 768,
     "frame_feature": "x_norm_clstoken",
-    "temporal_aggregation": "T32 trajectory + T31 first differences + trajectory mean/std/min/max + difference mean/std/maxabs + frame-count/duration tail",
+    "sampling_frames": 32,
+    "resize": [224, 168],
     "episode_feature_dimension": 53762,
-    "downstream_classifier": "unchanged StandardScaler + per-action hinge-SGD, margin >= 0",
-    "primary_population_episodes": 809,
-    "primary_candidate_pairs": 3236,
-    "primary_comparator": "V5_CHEAP_IR",
+    "downstream_classifier": "frozen StandardScaler + per-action hinge-SGD, margin >= 0",
     "primary_gate": {
       "delta_balanced_accuracy_min": 0.02,
       "delta_exact_set_accuracy_min": 0.03,
       "folds_nonnegative_balanced_accuracy_min": 4,
-      "folds_nonnegative_exact_set_min": 3,
-      "positive_below_gate_is_adoption": false
+      "folds_nonnegative_exact_set_min": 3
     },
-    "secondary_fixed_exploitation_readout": {
-      "population_episodes": 786,
-      "candidate_pairs": 3144,
-      "operator": "[pose, IMU, V7_strong_IR] simple feature concatenation",
-      "feature_dimension": 60361,
-      "comparator": "B5_POSE_PLUS_IMU",
+    "secondary_gate": {
       "delta_balanced_accuracy_min": 0.02,
       "delta_exact_set_accuracy_min": 0.03,
       "folds_nonnegative_balanced_accuracy_min": 4,
       "folds_nonnegative_exact_set_min": 3,
       "score_fusion_followup_authorized": false
-    },
-    "implementation_authorized": true,
-    "execution_authorized": true
+    }
   },
   "v7_execution": {
-    "implementation_constructed": true,
-    "implementation_storage": "/CUHK-X/cuhkx_v7_strong_ir_dinov2.py in user Library",
-    "implementation_sha256": "473d83342c680836badc0aa5232f32df5aecb7ae7d5755ec7986798eac13b544",
-    "precheck_attempted": true,
-    "precheck_state": "V7_PRECHECK_BLOCKED",
-    "precheck_reason": "current ChatGPT runtime lacks HAU-001.zip, Training-20260813T154030Z-1-002.zip, pose cache, IMU cache, and V5 IR cache",
-    "first_ir_frame_extracted": false,
-    "v7_feature_rows_created": 0,
-    "primary_result": "NOT_OBSERVED",
-    "secondary_result": "NOT_OBSERVED",
-    "scientific_evidence_seen": false,
-    "block_is_empirical_negative": false
+    "execution_state": "V7_EXECUTION_COMPLETE",
+    "historical_reproduction_firewalls": {
+      "V5_all809": "PASS",
+      "V5_matched": "PASS",
+      "B5_matched": "PASS"
+    },
+    "raw_result_artifact_storage": "/CUHK-X/cuhkx_v7_strong_ir_dinov2_results.zip in user Library",
+    "environment": {
+      "python": "3.14.6",
+      "platform": "Windows 11",
+      "numpy": "2.5.1",
+      "pandas": "3.0.5",
+      "sklearn": "1.9.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "pillow": "12.3.0",
+      "device": "cpu",
+      "cuda_available": false
+    },
+    "runtime_seconds": 2632.952959699993,
+    "primary": {
+      "V5_balanced_accuracy": 0.6655735735643534,
+      "V7_balanced_accuracy": 0.7509240663293679,
+      "delta_balanced_accuracy": 0.0853504927650145,
+      "V5_exact_set_accuracy": 0.22373300370828184,
+      "V7_exact_set_accuracy": 0.3522867737948084,
+      "delta_exact_set_accuracy": 0.12855377008652655,
+      "folds_nonnegative_balanced_accuracy": 5,
+      "folds_nonnegative_exact_set": 5,
+      "V7_only_correct_candidates": 565,
+      "V5_only_correct_candidates": 284,
+      "V7_only_exact_episodes": 163,
+      "V5_only_exact_episodes": 59,
+      "adjudication": "MATERIAL_IR_REPRESENTATION_GAIN"
+    },
+    "secondary": {
+      "B5_balanced_accuracy": 0.7130640619614627,
+      "V7F_balanced_accuracy": 0.7594595605210277,
+      "delta_balanced_accuracy": 0.04639549855956504,
+      "B5_exact_set_accuracy": 0.3053435114503817,
+      "V7F_exact_set_accuracy": 0.37404580152671757,
+      "delta_exact_set_accuracy": 0.06870229007633588,
+      "folds_nonnegative_balanced_accuracy": 5,
+      "folds_nonnegative_exact_set": 5,
+      "V7F_only_correct_candidates": 481,
+      "B5_only_correct_candidates": 332,
+      "V7F_only_exact_episodes": 144,
+      "B5_only_exact_episodes": 90,
+      "adjudication": "MATERIAL_STRONG_IR_SENSOR_GAIN"
+    },
+    "convergence_warning_note": "near-universal warnings under frozen max_iter=100 hinge-SGD also occur in reproduced V5/B5; no optimizer rescue or rerun authorized"
   },
-  "next_frontier": {
-    "locus": "VISUAL_REPRESENTATION_CAPACITY",
-    "leading_modality": "IR",
-    "strong_ir_representation_family": "DINOV2_VITB14_LVD142M_FRAME_T32",
-    "strong_ir_materiality_gate": "FROZEN",
-    "implementation_authorized": true,
-    "execution_authorized": true,
-    "next_authorized_operation": "EXECUTE_EXACT_FROZEN_V7_SCRIPT_IN_LOCAL_CUHKX_WORKSPACE"
+  "fs_facing_result": "same IR measurement channel + different frozen representation interface -> materially different accessible decision structure under subject-held-out transfer",
+  "post_v7_frontier": {
+    "successor": "UNFROZEN",
+    "automatic_architecture_search_authorized": false,
+    "automatic_fine_tuning_authorized": false,
+    "automatic_score_fusion_authorized": false,
+    "automatic_lvlm_branch_authorized": false,
+    "automatic_competition_incumbent_promotion": false,
+    "next_operation": "DESIGN_SELECTION_FROM_EARNED_V7_EVIDENCE"
   },
   "workflow": [
     "FREEZE",
