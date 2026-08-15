@@ -1,0 +1,99 @@
+{
+  "suite_id": "CUHKX_FS_EMPIRICAL_SUITE_V1",
+  "initialized_on": "2026-08-15",
+  "role": "EMPIRICAL_CASE_STUDY_SUBSTRATE",
+  "creates_new_empirical_evidence": false,
+  "modifies_fs_core_theory": false,
+  "modifies_competition_object": false,
+  "scientific_object": "X_modality -> O_interface -> Z_accessible -> D_decision -> subject-held-out transfer",
+  "authority_ceiling": "present representational sufficiency, interface comparison, repair/exploitation under frozen operators, adoption under frozen gates, and subject-held-out transfer; not full Future Sufficiency or future corrective viability",
+  "dataset": {
+    "official_qa_zip_sha256": "6a9dc7dd59c1bec120f4d408b911695e1592b81c10845dce3c1306a3cb876433",
+    "training_qa_rows": 4087,
+    "test_qa_rows": 682,
+    "train_unique_episodes": 1333,
+    "test_unique_episodes": 208,
+    "train_hau_episodes": 809,
+    "train_harn_episodes": 524,
+    "test_hau_episodes": 144,
+    "test_harn_episodes": 64,
+    "distinct_question_strings": 7
+  },
+  "primary_estimand": {
+    "empirical_unit": "episode",
+    "source": "HAU",
+    "category": "multi",
+    "question": "Which of the following actions appear in this video?",
+    "episodes": 809,
+    "candidate_actions": 40,
+    "candidate_pairs": 3236,
+    "fold_sha256": "0ae2bd6a594152dd1af444566416410043ac11f153d20c8a517bb2a6d5052b73",
+    "folds": {
+      "F0": [2, 16, 20],
+      "F1": [3, 9, 18, 24],
+      "F2": [1, 19, 22],
+      "F3": [5, 7, 8, 21],
+      "F4": [4, 6, 17, 23]
+    }
+  },
+  "provenance_hashes": {
+    "training_outer_zip_sha256": "667a00cb03ec67e1eeb49a744cb4fc764878fadae0b35ea873e25c2f7b3868bc",
+    "pose_cache_sha256": "d7e609a5e8a9ebc4bbdda92f8fe601d8b0c6ccfd4a2757f9a632a1ac9211b89a",
+    "imu_cache_sha256": "8c4656e2c76029783c18d0b76f92f58fa8165a786a7049c3be7bf90a28aa0234",
+    "historical_v1_depth_cache_sha256": "cfe9a32fe1a19b6c242a81490c99b2a10c7b082402521d710e50a8456131935a",
+    "v5_ir_cache_sha256": "265f27036b75afb3ae14eea9e3c1f03d091052f495deaf6c1ae903222eafea0e"
+  },
+  "formal_incumbent": {
+    "probe": "B5_pose_plus_IMU",
+    "matched_episodes": 786,
+    "candidate_pairs": 3144,
+    "balanced_accuracy": 0.7130640619614627,
+    "macro_f1": 0.7120487083722378,
+    "exact_set_accuracy": 0.3053435114503817,
+    "adjudication": "MATERIAL_MODAL_COMPLEMENTARITY"
+  },
+  "latest_visual_characterization": {
+    "V5_IR": {
+      "balanced_accuracy": 0.6690153668069166,
+      "macro_f1": 0.6676785806852936,
+      "exact_set_accuracy": 0.24427480916030533,
+      "prediction_disagreement_vs_B5": 0.3543,
+      "IR_only_correct": 487,
+      "candidate_pairs": 3144,
+      "adjudication": "PARTIAL_IR_ACTION_PRESENCE_AND_COMPLEMENTARITY_SUPPORTED"
+    },
+    "V6_B5_plus_IR": {
+      "balanced_accuracy_approx": 0.73035,
+      "macro_f1_approx": 0.72854,
+      "exact_set_accuracy_approx": 0.31807,
+      "delta_balanced_accuracy": 0.017286,
+      "delta_exact_set_accuracy": 0.012723,
+      "folds_nonnegative_balanced_accuracy": 4,
+      "folds_nonnegative_exact_set": 3,
+      "required_delta_balanced_accuracy": 0.02,
+      "required_delta_exact_set_accuracy": 0.03,
+      "adjudication": "NO_MATERIAL_IR_SENSOR_GAIN_POSITIVE_BUT_SUBMATERIAL"
+    }
+  },
+  "branch_state": {
+    "cheap_interface_search": "COMPLETE",
+    "fixed_depth_branch": "CLOSED",
+    "cheap_radar_fusion_branch": "CLOSED",
+    "cheap_ir_fusion_branch": "CLOSED"
+  },
+  "next_frontier": {
+    "locus": "VISUAL_REPRESENTATION_CAPACITY",
+    "leading_modality": "IR",
+    "strong_ir_representation_family": "UNFROZEN",
+    "strong_ir_materiality_gate": "UNFROZEN",
+    "implementation_authorized": false,
+    "execution_authorized": false,
+    "next_authorized_design_operation": "FREEZE_ONE_STRONGER_IR_REPRESENTATION_PROBE"
+  },
+  "workflow": [
+    "FREEZE",
+    "YES_THIS_IS_THE_NEXT_STEP",
+    "EXECUTE",
+    "ADJUDICATE"
+  ]
+}
