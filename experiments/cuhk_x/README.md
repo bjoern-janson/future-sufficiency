@@ -84,7 +84,7 @@ future-sufficiency/experiments/cuhk_x
     -> frozen empirical object / evidence ledger / authority boundaries / FS-facing case-study substrate
 ```
 
-Do not infer experiment identity from a result filename alone. Historical CUHK-X work includes known stale-path naming defects; identity must follow the internal summary/specification, feature version, script hash, and decode/member provenance.
+The exact V7 execution script is persisted separately in the user's Library CUHK-X workspace and is bound into this suite by SHA-256. Do not infer experiment identity from a result filename alone. Historical CUHK-X work includes known stale-path naming defects; identity must follow internal specification, feature version, script hash, and decode/member provenance.
 
 ## Frozen current state
 
@@ -100,21 +100,29 @@ CUHKX_STRONG_IR_REPRESENTATION    = DINOV2_VITB14_LVD142M_FRAME_T32
 CUHKX_STRONG_IR_DESIGN_STATE      = FROZEN
 CUHKX_STRONG_IR_PRIMARY_GATE      = FROZEN
 CUHKX_STRONG_IR_SECONDARY_GATE    = FROZEN
-CUHKX_IMPLEMENTATION_AUTHORIZED   = false
-CUHKX_EXECUTION_AUTHORIZED        = false
+CUHKX_IMPLEMENTATION_AUTHORIZED   = true
+CUHKX_IMPLEMENTATION_CONSTRUCTED  = true
+CUHKX_EXECUTION_AUTHORIZED        = true
+CUHKX_EXECUTION_PRECHECK          = V7_PRECHECK_BLOCKED
+CUHKX_FIRST_FEATURE_EXTRACTED     = false
+CUHKX_V7_SCIENTIFIC_RESULT        = NOT_OBSERVED
 ```
 
 The selected stronger-IR operator is frozen in [`STRONG_IR_REPRESENTATION_PREREGISTRATION.md`](STRONG_IR_REPRESENTATION_PREREGISTRATION.md).
 
-The next authorized operation is only:
+The first authorized execution attempt is recorded in [`V7_EXECUTION_PRECHECK_BLOCKED.md`](V7_EXECUTION_PRECHECK_BLOCKED.md). It stopped before any frame extraction because the ChatGPT runtime does not contain the user's local CUHK-X media/caches.
+
+Thus:
 
 \[
 \boxed{
-\texttt{YES\_THIS\_IS\_THE\_NEXT\_STEP}
+\texttt{V7\_PRECHECK\_BLOCKED}
+\neq
+\texttt{V7\_SCIENTIFIC\_RESULT}.
 }
 \]
 
-No V7 implementation or execution is authorized by the design freeze itself.
+The remaining operation is operational execution of the exact frozen script in the local CUHK-X workspace. No scientific redesign is licensed by the block.
 
 ## Why IR is the earned next locus
 
@@ -142,6 +150,7 @@ while holding the modality, HAU target, subject folds, and downstream decision d
 - [`SUITE_SPEC.md`](SUITE_SPEC.md) — scientific object, claim types, gates, and authority ceiling.
 - [`EVIDENCE_LEDGER.md`](EVIDENCE_LEDGER.md) — frozen B0–B8 and V0–V6 experimental lineage.
 - [`STRONG_IR_REPRESENTATION_PREREGISTRATION.md`](STRONG_IR_REPRESENTATION_PREREGISTRATION.md) — frozen V7 DINOv2-B/14 representation design, primary comparison, secondary exploitation readout, and gates.
+- [`V7_EXECUTION_PRECHECK_BLOCKED.md`](V7_EXECUTION_PRECHECK_BLOCKED.md) — frozen implementation hash and typed first execution precheck block.
 - [`suite_manifest.json`](suite_manifest.json) — machine-readable current state and provenance anchors.
 
 ## Governing workflow
