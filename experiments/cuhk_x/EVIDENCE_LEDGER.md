@@ -1,6 +1,6 @@
 # CUHK-X frozen evidence ledger
 
-This ledger records the already-adjudicated cheap-interface search. It is a provenance index, not a new empirical analysis.
+This ledger records the adjudicated CUHK-X empirical ladder. It is a provenance index, not a theory update.
 
 ## Governing rule
 
@@ -40,14 +40,12 @@ Pre-score plumbing failures are not empirical negative results.
 
 B5 used 786 common pose+usable-IMU HAU `multi` episodes / 3144 candidate decisions.
 
-Compared with the better standalone channel per metric:
-
 ```text
 Delta balanced accuracy = +0.02897
 Delta exact-set         = +0.05980
 ```
 
-The fold requirements passed. B5 therefore became the formally promoted cheap incumbent.
+The fold requirements passed. B5 became the formally promoted cheap incumbent.
 
 ### Radar complementarity without promotion
 
@@ -59,9 +57,7 @@ radar-only correct         = 459/3112 = 14.75%
 radar-only correction >=3% = 5/5 folds
 ```
 
-Radar clearly preserved nonredundant decision information, but neither raw concatenation nor nested score fusion crossed the frozen materiality gate.
-
-This is a direct empirical instance of:
+Radar preserved nonredundant decision information, but neither raw concatenation nor nested score fusion crossed the frozen materiality gate.
 
 \[
 \boxed{
@@ -101,8 +97,10 @@ V0 decode benchmark after an isolated decoder repair decoded 42/42 frozen stream
 | V2 | B5+Depth raw concat | BalAcc .70076; MacroF1 .70043; ExactSet .26718 | `NO_MATERIAL_VISUAL_SENSOR_GAIN` |
 | V3 | Nested B5/Depth score fusion | BalAcc .70594; MacroF1 .70433; ExactSet .26972 | `NO_MATERIAL_DEPTH_SCORE_FUSION_GAIN` |
 | V4 | Preregistered Depth-motion repair | BalAcc .65287; MacroF1 .65171; ExactSet .19211 | failed representation repair; fixed Depth branch closed |
-| V5 | Cheap raw IR: same 16x12, T32, 13,442D | Matched BalAcc .6690154; MacroF1 .6676786; ExactSet .2442748 | `PARTIAL_IR_ACTION_PRESENCE`; B5 materially better; IR complementarity supported |
-| V6 | B5+IR raw concat | BalAcc ~.73035; MacroF1 ~.72854; ExactSet ~.31807 | `NO_MATERIAL_IR_SENSOR_GAIN`; positive but submaterial; cheap IR fusion closed |
+| V5 | Cheap raw IR: 16x12, T32, 13,442D | all-809 BalAcc .66557; ExactSet .22373; matched BalAcc .66902; ExactSet .24427 | `PARTIAL_IR_ACTION_PRESENCE`; B5 materially better; IR complementarity supported |
+| V6 | B5+cheap-IR raw concat | BalAcc ~.73035; MacroF1 ~.72854; ExactSet ~.31807 | `NO_MATERIAL_IR_SENSOR_GAIN`; positive but submaterial; cheap IR fusion closed |
+| V7 | Frozen DINOv2-B/14 IR representation, T32, 53,762D | all-809 BalAcc .7509241; MacroF1 .7506303; ExactSet .3522868 | `MATERIAL_IR_REPRESENTATION_GAIN` |
+| V7F | B5 + frozen V7 strong-IR raw concat, 60,361D | matched BalAcc .7594596; MacroF1 .7590965; ExactSet .3740458 | `MATERIAL_STRONG_IR_SENSOR_GAIN` |
 
 ### V1 Depth complementarity
 
@@ -117,8 +115,6 @@ Depth-only >=3%         = 5/5 folds
 ```
 
 Depth nevertheless remained below B5 in all five folds. V2 and V3 failed to exploit the complementarity materially, and the single preregistered V4 representation repair regressed relative to V1.
-
-Therefore:
 
 \[
 \boxed{
@@ -157,8 +153,6 @@ Thus IR preserved substantial nonredundant subject-portable information even tho
 
 ### V6 positive but submaterial exploitation
 
-V6 held the B5 and IR representations fixed and concatenated them on the same 786-episode support.
-
 ```text
 B5 balanced accuracy   = 0.7130641
 V6 balanced accuracy   = ~0.73035
@@ -171,31 +165,7 @@ Delta                  = +0.012723
 required               = +0.030000
 ```
 
-Fold requirements themselves passed:
-
-```text
-V6 >= B5 balanced accuracy = 4/5 folds
-V6 >= B5 exact-set         = 3/5 folds
-```
-
-Candidate topology:
-
-```text
-both correct  = 1862
-B5-only       = 378
-V6-only       = 429
-both wrong    = 475
-```
-
-Exact episodes:
-
-```text
-B5 exact = 240
-V6 exact = 250
-net       = +10
-```
-
-Therefore V6 is descriptively positive and comparatively stable, but the preregistered magnitude thresholds were not met.
+Fold requirements passed at 4/5 BalAcc and 3/5 ExactSet, but the magnitude thresholds did not.
 
 \[
 \boxed{
@@ -203,7 +173,117 @@ Therefore V6 is descriptively positive and comparatively stable, but the preregi
 }
 \]
 
-The cheap IR-fusion branch is closed without an IR score-fusion follow-up.
+The cheap IR-fusion branch was closed without an IR score-fusion follow-up.
+
+## V7 — stronger IR representation
+
+V7 changed the IR representational interface while holding the physical IR channel, 809-episode HAU `multi` target, canonical subject folds, candidate vocabulary, and downstream per-action hinge-SGD interface fixed.
+
+Frozen operator:
+
+```text
+IR
+-> 32 deterministic normalized-time frames
+-> grayscale replication
+-> 224x168 bicubic normalization
+-> frozen DINOv2 ViT-B/14 LVD-142M x_norm_clstoken
+-> frozen T32 trajectory/difference/statistics aggregation
+-> 53,762D episode representation
+```
+
+Historical reproduction firewalls all passed before scoring. The embedded execution-script SHA-256 matched the frozen implementation exactly:
+
+```text
+473d83342c680836badc0aa5232f32df5aecb7ae7d5755ec7986798eac13b544
+```
+
+### V7 primary: cheap IR vs strong IR
+
+All 809 episodes / 3236 candidate decisions:
+
+```text
+V5 BalAcc     = 0.6655735735643534
+V7 BalAcc     = 0.7509240663293679
+Delta         = +0.0853504927650145
+required      = +0.020
+
+V5 ExactSet   = 0.22373300370828184
+V7 ExactSet   = 0.3522867737948084
+Delta         = +0.12855377008652655
+required      = +0.030
+
+BalAcc folds nonnegative = 5/5, required >=4/5
+ExactSet folds nonnegative = 5/5, required >=3/5
+```
+
+Paired topology:
+
+```text
+V7-only correct candidate decisions = 565
+V5-only correct candidate decisions = 284
+net candidate gain                  = +281
+
+V7-only exact episodes = 163
+V5-only exact episodes = 59
+net exact gain         = +104
+```
+
+Therefore:
+
+\[
+\boxed{D_{V7}^{primary}=\texttt{MATERIAL\_IR\_REPRESENTATION\_GAIN}.}
+\]
+
+Licensed interpretation:
+
+> Under the frozen HAU `multi` subject-held-out protocol, the frozen DINOv2 ViT-B/14 IR interface preserves materially more usable candidate-action structure than the previously frozen cheap IR interface.
+
+### V7 secondary: joint exploitation with B5
+
+On the exact 786-episode B5 support / 3144 candidate decisions:
+
+```text
+B5 BalAcc     = 0.7130640619614627
+V7F BalAcc    = 0.7594595605210277
+Delta         = +0.04639549855956504
+required      = +0.020
+
+B5 ExactSet   = 0.3053435114503817
+V7F ExactSet  = 0.37404580152671757
+Delta         = +0.06870229007633588
+required      = +0.030
+
+BalAcc folds nonnegative = 5/5, required >=4/5
+ExactSet folds nonnegative = 5/5, required >=3/5
+```
+
+Paired topology:
+
+```text
+V7F-only correct candidate decisions = 481
+B5-only correct candidate decisions  = 332
+net candidate gain                   = +149
+
+V7F-only exact episodes = 144
+B5-only exact episodes  = 90
+net exact gain           = +54
+```
+
+Therefore:
+
+\[
+\boxed{D_{V7}^{secondary}=\texttt{MATERIAL\_STRONG\_IR\_SENSOR\_GAIN}.}
+\]
+
+The primary and secondary results remain conceptually separate despite both passing:
+
+\[
+\boxed{\text{representation repair}\neq\text{joint exploitation}.}
+\]
+
+### Convergence-warning provenance
+
+The frozen `max_iter=100` hinge-SGD interface emitted convergence warnings for nearly all per-action fits for V5, B5, V7, and V7F. Because comparator metrics reproduced exactly and the classifier interface was frozen before V7, no optimizer rescue or post-hoc rerun is authorized. This is a recorded property of the fixed downstream interface, not a V7-specific implementation failure.
 
 ## Known plumbing defects preserved as provenance
 
@@ -212,8 +292,9 @@ These events did not alter the corresponding frozen empirical interpretations:
 - V0 decode initially blocked because no decoder was installed; repaired with isolated `imageio-ffmpeg`.
 - V2 initially hit `allow_pickle=False` on a hash-locked self-generated object-dtype cache; repaired only at serialization access.
 - V3 first generated script contained an accidentally mutated pose-cache SHA suffix; repaired before scoring.
-- V5 retained stale V1 Depth cache/result path names, causing IR to overwrite the disposable local Depth cache and produce a misleading filename. The V5 evidence identity was verified from IR decode members, feature version, V5 spec, and script hash.
-- V6 first stopped because the verified IR cache had not yet been copied to the corrected V5 cache path; input plumbing was repaired before scoring.
+- V5 retained stale V1 Depth cache/result path names; evidence identity was verified from IR decode members, feature version, V5 spec, and script hash.
+- V6 first stopped because the verified IR cache had not yet been copied to the corrected V5 cache path; repaired before scoring.
+- V7 first stopped in the ChatGPT runtime because local media/caches were absent; local execution then encountered missing Pillow and Torch dependencies. These were dependency-precheck blocks before feature extraction, repaired without changing the frozen V7 script.
 
 General rule:
 
@@ -229,21 +310,37 @@ General rule:
 \boxed{
 \begin{aligned}
 &\text{Pose and IMU: partial individually}\\
-&\text{Pose+IMU: material complementarity and formal promotion}\\
-&\text{Radar, Depth, IR: nonredundant information demonstrated}\\
+&\text{Pose+IMU: material complementarity and formal cheap promotion}\\
+&\text{Radar, Depth, cheap IR: nonredundant information demonstrated}\\
 &\text{cheap Radar/Depth exploitation: not materially successful}\\
-&\text{cheap IR exploitation: positive and fold-stable, but submaterial}.
+&\text{cheap IR exploitation: positive and fold-stable, but submaterial}\\
+&\text{strong IR representation: material repair}\\
+&\text{B5 + strong IR: material joint exploitation}.
 \end{aligned}}
 \]
 
-The cheap-interface search is therefore complete.
-
-## Next frontier
+The key V7 result is:
 
 \[
 \boxed{
-\textbf{next locus = visual representation capacity}
+\text{same IR measurement channel}
++
+\text{different frozen interface}
+\rightarrow
+\text{materially different accessible decision structure under subject transfer}.
 }
 \]
 
-IR is the leading modality for escalation, but the stronger representation and its gate remain unfrozen. This ledger does not authorize implementation or execution.
+This is an empirical representation/interface result, not a direct Future-Sufficiency test.
+
+## Current frontier
+
+V7 execution and adjudication are complete. The post-V7 successor is intentionally **unfrozen**.
+
+```text
+V7_PRIMARY_RESULT      = MATERIAL_IR_REPRESENTATION_GAIN
+V7_SECONDARY_RESULT    = MATERIAL_STRONG_IR_SENSOR_GAIN
+POST_V7_SUCCESSOR      = UNFROZEN
+```
+
+No automatic DINO variant, video model, LVLM, fine-tuning, fusion search, or competition incumbent promotion is authorized by this ledger. The next operation is design selection from the newly earned V7 evidence.
