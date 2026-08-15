@@ -81,14 +81,74 @@
     "cheap_radar_fusion_branch": "CLOSED",
     "cheap_ir_fusion_branch": "CLOSED"
   },
+  "strong_ir_preregistration": {
+    "probe_id": "CUHKX_V7_STRONG_IR_DINOV2_B14",
+    "design_selection_state": "FROZEN",
+    "representation_family": "DINOV2_VITB14_LVD142M_FRAME_T32",
+    "physical_modality": "IR",
+    "backbone": {
+      "project": "facebookresearch/dinov2",
+      "source_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+      "hub_symbol": "dinov2_vitb14",
+      "weights": "LVD142M",
+      "register_tokens": 0,
+      "parameters": 86000000,
+      "embedding_dimension": 768,
+      "patch_size": 14,
+      "license_at_freeze": "Apache-2.0",
+      "checkpoint_sha256": "TO_BE_BOUND_BEFORE_FIRST_FEATURE_EXTRACTION"
+    },
+    "sampling": {
+      "frames": 32,
+      "index_rule": "floor(j*(N-1)/31 + 0.5), j=0..31",
+      "random_sampling": false
+    },
+    "preprocessing": {
+      "grayscale": "mean(R,G,B)/255 then replicate to 3 channels",
+      "width": 224,
+      "height": 168,
+      "interpolation": "bicubic",
+      "crop": "none",
+      "mean": [0.485, 0.456, 0.406],
+      "std": [0.229, 0.224, 0.225]
+    },
+    "frame_feature": "x_norm_clstoken",
+    "temporal_aggregation": "T32 trajectory + T31 first differences + trajectory mean/std/min/max + difference mean/std/maxabs + frame-count/duration tail",
+    "episode_feature_dimension": 53762,
+    "downstream_classifier": "unchanged StandardScaler + per-action hinge-SGD, margin >= 0",
+    "primary_population_episodes": 809,
+    "primary_candidate_pairs": 3236,
+    "primary_comparator": "V5_CHEAP_IR",
+    "primary_gate": {
+      "delta_balanced_accuracy_min": 0.02,
+      "delta_exact_set_accuracy_min": 0.03,
+      "folds_nonnegative_balanced_accuracy_min": 4,
+      "folds_nonnegative_exact_set_min": 3,
+      "positive_below_gate_is_adoption": false
+    },
+    "secondary_fixed_exploitation_readout": {
+      "population_episodes": 786,
+      "candidate_pairs": 3144,
+      "operator": "[pose, IMU, V7_strong_IR] simple feature concatenation",
+      "feature_dimension": 60361,
+      "comparator": "B5_POSE_PLUS_IMU",
+      "delta_balanced_accuracy_min": 0.02,
+      "delta_exact_set_accuracy_min": 0.03,
+      "folds_nonnegative_balanced_accuracy_min": 4,
+      "folds_nonnegative_exact_set_min": 3,
+      "score_fusion_followup_authorized": false
+    },
+    "implementation_authorized": false,
+    "execution_authorized": false
+  },
   "next_frontier": {
     "locus": "VISUAL_REPRESENTATION_CAPACITY",
     "leading_modality": "IR",
-    "strong_ir_representation_family": "UNFROZEN",
-    "strong_ir_materiality_gate": "UNFROZEN",
+    "strong_ir_representation_family": "DINOV2_VITB14_LVD142M_FRAME_T32",
+    "strong_ir_materiality_gate": "FROZEN",
     "implementation_authorized": false,
     "execution_authorized": false,
-    "next_authorized_design_operation": "FREEZE_ONE_STRONGER_IR_REPRESENTATION_PROBE"
+    "next_authorized_operation": "YES_THIS_IS_THE_NEXT_STEP"
   },
   "workflow": [
     "FREEZE",

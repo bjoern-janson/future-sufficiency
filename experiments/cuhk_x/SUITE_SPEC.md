@@ -261,15 +261,57 @@ fixed Depth     CLOSED
 cheap IR fusion CLOSED
 ```
 
-The next earned locus is visual representation capacity, with IR as the leading channel.
+The next earned locus remains visual representation capacity with IR as the leading channel, but the representation-design ambiguity has now been resolved.
 
-However, at this suite checkpoint:
+Frozen successor design:
 
 ```text
-strong_IR_representation_family = UNFROZEN
-strong_IR_materiality_gate       = UNFROZEN
-strong_IR_code                   = NOT_AUTHORIZED
-strong_IR_execution              = NOT_AUTHORIZED
+probe_id                         CUHKX_V7_STRONG_IR_DINOV2_B14
+strong_IR_representation_family DINOV2_VITB14_LVD142M_FRAME_T32
+pretrained_backbone              DINOv2 ViT-B/14, no registers
+source_revision                  7764ea0f912e53c92e82eb78a2a1631e92725fc8
+frame_count                      32 normalized-time samples
+input_geometry                   3 x 168 x 224
+frame_feature                    normalized CLS token, 768D
+episode_feature_dimension        53762
+downstream_classifier            unchanged per-action hinge-SGD
+primary_gate                     FROZEN
+secondary_fixed_B5_fusion_gate   FROZEN
+implementation_authorized        false
+execution_authorized             false
 ```
 
-The only authorized successor-design operation is to freeze exactly one stronger IR representation probe and its comparison/gate before implementation.
+The primary contrast is:
+
+\[
+\boxed{
+O_{\rm IR}^{cheap}
+\quad\text{vs}\quad
+O_{\rm IR}^{strong}
+}
+\]
+
+on all 809 HAU `multi` episodes with the same folds and downstream decision family.
+
+The primary materiality gate is:
+
+```text
+V7 - V5 balanced accuracy >= +0.020
+AND V7 - V5 exact-set >= +0.030
+AND V7 >= V5 balanced accuracy in >=4/5 folds
+AND V7 >= V5 exact-set in >=3/5 folds
+```
+
+One secondary fixed exploitation readout is also preregistered on the exact 786 B5 support using simple feature concatenation and the already-established +0.020/+0.030 fusion materiality thresholds. It is not a fusion search and authorizes no score-fusion successor.
+
+The complete operator, preprocessing, temporal aggregation, reproduction firewalls, forbidden branches, and authority ceiling are frozen in:
+
+[`STRONG_IR_REPRESENTATION_PREREGISTRATION.md`](STRONG_IR_REPRESENTATION_PREREGISTRATION.md).
+
+The next authorized operation is only:
+
+```text
+YES_THIS_IS_THE_NEXT_STEP
+```
+
+No V7 implementation or execution is authorized at this checkpoint.

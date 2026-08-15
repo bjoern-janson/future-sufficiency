@@ -95,21 +95,26 @@ CUHKX_DEPTH_BRANCH                = CLOSED
 CUHKX_CHEAP_RADAR_FUSION_BRANCH   = CLOSED
 CUHKX_CHEAP_IR_FUSION_BRANCH      = CLOSED
 CUHKX_NEXT_LOCUS                  = VISUAL_REPRESENTATION_CAPACITY
-CUHKX_NEXT_MODALITY_CANDIDATE     = IR
-CUHKX_STRONG_IR_REPRESENTATION    = UNFROZEN
-CUHKX_STRONG_IR_GATE              = UNFROZEN
+CUHKX_NEXT_MODALITY               = IR
+CUHKX_STRONG_IR_REPRESENTATION    = DINOV2_VITB14_LVD142M_FRAME_T32
+CUHKX_STRONG_IR_DESIGN_STATE      = FROZEN
+CUHKX_STRONG_IR_PRIMARY_GATE      = FROZEN
+CUHKX_STRONG_IR_SECONDARY_GATE    = FROZEN
+CUHKX_IMPLEMENTATION_AUTHORIZED   = false
 CUHKX_EXECUTION_AUTHORIZED        = false
 ```
 
-The next authorized **design** operation is only:
+The selected stronger-IR operator is frozen in [`STRONG_IR_REPRESENTATION_PREREGISTRATION.md`](STRONG_IR_REPRESENTATION_PREREGISTRATION.md).
+
+The next authorized operation is only:
 
 \[
 \boxed{
-\texttt{FREEZE\_ONE\_STRONGER\_IR\_REPRESENTATION\_PROBE}
+\texttt{YES\_THIS\_IS\_THE\_NEXT\_STEP}
 }
 \]
 
-No stronger-IR implementation or execution is authorized by creation of this suite.
+No V7 implementation or execution is authorized by the design freeze itself.
 
 ## Why IR is the earned next locus
 
@@ -121,21 +126,22 @@ The cheap IR branch established all of the following on the frozen HAU `multi` c
 4. Simple B5+IR concatenation improved pooled balanced accuracy and exact-set accuracy with favorable fold counts.
 5. The improvement was nevertheless below the already-frozen materiality thresholds, so adoption was not earned.
 
-Thus the next scientific question is not "does IR contain useful information?" but:
+Thus the scientific question has moved from "does IR contain useful information?" to:
 
 \[
 \boxed{
-\text{Does a higher-capacity }O_{\rm IR}
+\text{Does the frozen stronger }O_{\rm IR}
 \text{ expose materially more subject-portable decision structure?}
 }
 \]
 
-while holding the modality, HAU target, subject folds, and downstream comparison discipline fixed.
+while holding the modality, HAU target, subject folds, and downstream decision discipline fixed.
 
 ## Files
 
 - [`SUITE_SPEC.md`](SUITE_SPEC.md) — scientific object, claim types, gates, and authority ceiling.
 - [`EVIDENCE_LEDGER.md`](EVIDENCE_LEDGER.md) — frozen B0–B8 and V0–V6 experimental lineage.
+- [`STRONG_IR_REPRESENTATION_PREREGISTRATION.md`](STRONG_IR_REPRESENTATION_PREREGISTRATION.md) — frozen V7 DINOv2-B/14 representation design, primary comparison, secondary exploitation readout, and gates.
 - [`suite_manifest.json`](suite_manifest.json) — machine-readable current state and provenance anchors.
 
 ## Governing workflow
